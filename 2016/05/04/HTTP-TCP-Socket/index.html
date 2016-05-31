@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="HTTP TCP Socket
+一：HTTP版本简介
+这里我把HTTP版本简单分为三类：1.1之前，1.1，2.0，针对这三类做个主要差异的介绍：
+1.HTTP 1.1之前
+不支持持久连接。一旦服务器对客户端发出响应就立即断开TCP连接
+无请求头跟响应头
+客户端的前后请求是同步的。下一个请求必须等上一个请求从服务端拿到响应后才能发出，有点类似多线程的同步机制。
+2.HTTP 1.1(主流版本)
+与">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2016/05/04/HTTP-TCP-Socket/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="HTTP TCP Socket
+一：HTTP版本简介
+这里我把HTTP版本简单分为三类：1.1之前，1.1，2.0，针对这三类做个主要差异的介绍：
+1.HTTP 1.1之前
+不支持持久连接。一旦服务器对客户端发出响应就立即断开TCP连接
+无请求头跟响应头
+客户端的前后请求是同步的。下一个请求必须等上一个请求从服务端拿到响应后才能发出，有点类似多线程的同步机制。
+2.HTTP 1.1(主流版本)
+与">
+<meta property="og:updated_time" content="2016-05-04T05:16:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="HTTP TCP Socket
+一：HTTP版本简介
+这里我把HTTP版本简单分为三类：1.1之前，1.1，2.0，针对这三类做个主要差异的介绍：
+1.HTTP 1.1之前
+不支持持久连接。一旦服务器对客户端发出响应就立即断开TCP连接
+无请求头跟响应头
+客户端的前后请求是同步的。下一个请求必须等上一个请求从服务端拿到响应后才能发出，有点类似多线程的同步机制。
+2.HTTP 1.1(主流版本)
+与">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HTTP-TCP-Socket" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/04/HTTP-TCP-Socket/" class="article-date">
+  <time datetime="2016-05-04T05:16:35.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HTTP TCP Socket</p>
+<p>一：HTTP版本简介</p>
+<p>这里我把HTTP版本简单分为三类：1.1之前，1.1，2.0，针对这三类做个主要差异的介绍：</p>
+<p>1.HTTP 1.1之前</p>
+<p>不支持持久连接。一旦服务器对客户端发出响应就立即断开TCP连接</p>
+<p>无请求头跟响应头</p>
+<p>客户端的前后请求是同步的。下一个请求必须等上一个请求从服务端拿到响应后才能发出，有点类似多线程的同步机制。</p>
+<p>2.HTTP 1.1(主流版本)</p>
+<p>与1.1之前的版本相比，做了以下性能上的提升</p>
+<p>增加请求头跟响应头</p>
+<p>支持持久连接。客户端通过请求头中指定Connection为keep-alive告知服务端不要在完成响应后立即释放连接。HTTP是基于TCP的，在HTTP 1.1中一次TCP连接可以处理多次HTTP请求</p>
+<p>客户端不同请求之间是异步的。下一个请求不必等到上一个请求回来后再发出，而可以连续发出请求，有点类似多线程的异步处理。</p>
+<p>3.HTTP 2.0</p>
+<p>本着向下兼容的原则，1.1版本有的特性2.0都具备，也使用相同的API。但是2.0将只用于https网址。由于2.0的普及还需要比较长的一段时间。</p>
+<p>我们重点关注一下当前1.1版本所做几点改变。支持持久连接有什么好处呢？HTTP是基于TCP连接的，如果连接被频繁地启动然后断开就会花费很多资源在TCP三次握手以及四次挥手上，效率低下。以请求一个网页为例，我们知道，一个html网页上的图片资源并不是直接嵌入在网页上，而只是提供url，图片仍需要额外发HTTP 请求去下载。一个网页从请求到最终加载到本地往往需要经过过个HTTP请求。在1.1版本之前请求一个网页就需要发生多次”握手-挥手”的过程，每次连接之间相互独立；而1.1及之后的版本最少只需要一次就够。</p>
+<p>再来就是请求异步，其好处参考多线程异步处理，在此不展开。</p>
+<p>以上特性可以用图1.1表示：</p>
+<pre><code>图1.1 异步请求
+</code></pre><p>我们可以看到：1、N次请求其实只建立了1次TCP连接，2、N次请求连续异步发出。</p>
+<p>二：HTTP、Socket、TCP的区别</p>
+<p>这三个概念经常被谈到，也是比较容易被混掉的概念。在回顾之前我们先看一下这三者在TCP/IP协议族中的位置关系：</p>
+<pre><code>图2.1 层次关系
+</code></pre><p>HTTP是应用层的协议，更靠近用户端；TCP是传输层的协议；而socket是从传输层上抽象出来的一个抽象层，本质是接口。所以本质上三种还是很好区分的。尽管如此，有时候你可能会懵逼，HTTP连接、TCP连接、socket连接有什么区别？好吧，如果上面的图解释的还是不够清楚的话，我们继续往下看。</p>
+<p>1、TCP连接与HTTP连接的区别</p>
+<p>上文提过，HTTP是基于TCP的，客户端往服务端发送一个HTTP请求时第一步就是要建立与服务端的TCP连接，也就是先三次握手，“你好，你好，你好”。从HTTP 1.1开始支持持久连接，也就是一次TCP连接可以发送多次的HTTP请求。</p>
+<p>小总结：HTTP基于TCP</p>
+<p>2、TCP连接与Socket连接的区别</p>
+<p>在图4.1中我们提到，socket层只是在TCP/UDP传输层上做的一个抽象接口层，因此一个socket连接可以基于连接，也有可能基于UDP。基于TCP协议的socket连接同样需要通过三次握手建立连接，是可靠的；基于UDP协议的socket连接不需要建立连接的过程，不过对方能不能收到都会发送过去，是不可靠的，大多数的即时通讯IM都是后者。</p>
+<p>小总结：Socket也基于TCP</p>
+<p>3、HTTP连接与Socket连接的区别</p>
+<p>区分这两个概念是比较有意义的，毕竟TCP看不见摸不着，HTTP与Socket是实实在在能用到的。</p>
+<p>HTTP是短连接，Socket(基于TCP协议的)是长连接。尽管HTTP1.1开始支持持久连接，但仍无法保证始终连接。而Socket连接一旦建立TCP三次握手，除非一方主动断开，否则连接状态一直保持。</p>
+<p>HTTP连接服务端无法主动发消息，Socket连接双方请求的发送先后限制。这点就比较重要了，因为它将决定二者分别适合应用在什么场景下。HTTP采用“请求-响应”机制，在客户端还没发送消息给服务端前，服务端无法推送消息给客户端。必须满足客户端发送消息在前，服务端回复在后。Socket连接双方类似peer2peer的关系，一方随时可以向另一方喊话。</p>
+<p>4、问题来了：什么时候该用HTTP，什么时候该用socket</p>
+<p>这个问题的提出是很自然而然的。当你接到一个与另一方的网络通讯需求，自然会考虑用HTTP还是用Socket。</p>
+<p>用HTTP的情况：双方不需要时刻保持连接在线，比如客户端资源的获取、文件上传等。</p>
+<p>用Socket的情况：大部分即时通讯应用(QQ、微信)、聊天室、苹果APNs等</p>
+<p>在iOS中，发HTTP请求一般用原生的NSURLConnection、NSURLSession或者开源的AFNetWorking(推荐)、ASIHttpRequest(已停止更新)。连接Socket连接我用的比较多是robbiehanson大神的CocoaAsyncSocket(XMPPFramework也是出自他手)。</p>
+<p>三：小结</p>
+<p>以上就是关于HTTP与TCP的一些区别，欢迎留言，如果不对的地方还请不吝指出，谢谢！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/04/HTTP-TCP-Socket/" data-id="ciovb6gay0003u1s65eo4qu3g" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/04/iOS笔试题(二)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/04/面试总结（持续更新中）/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/26/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/04/iOS笔试题(一)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/04/iOS笔试题(二)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/04/HTTP-TCP-Socket/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/04/面试总结（持续更新中）/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

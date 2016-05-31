@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-CoreData基础教程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/04/CoreData基础教程/" class="article-date">
+  <time datetime="2016-05-04T04:54:06.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>####使用CoreData来保存数据<br>1.创建DataModel，创建Entity，添加属性，创建NSManagedObject subclass关联创建的实体类。自动生成代码类，然后在对应的viewController导入实体类头文件。</p>
+<pre><code>//  1. 初始化上下文
+NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+// 2. 添加持久化存储
+// 2.1 模型文件 描述表结构的文件
+NSManagedObjectModel *companyModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+
+// 2.2 持久化存储调用器
+NSPersistentStoreCoordinator *store = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:companyModel];
+NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+
+// 数据库的完整路径
+NSString *sqlitePath = [doc stringByAppendingString:@&quot;company.sqlite&quot;];
+// 保存一个sqlite文件的话，必须要知道表结构和sqlite的文件路径
+
+// 2.3 告诉coredata数据存储在一个sqlite文件
+NSError *error = nil;
+[store addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:sqlitePath] options:nil error:&amp;error];
+if (error) {
+    NSLog(@&quot;%@&quot;,error);
+}
+context.persistentStoreCoordinator = store;
+_context = context;
+ - (IBAction)add:(id)sender {
+// 添加员工
+// 1.创建一个员工对象
+// 用coredata创建对象不能使用下面的方法
+    //    Employee *emp = [[Employee alloc] init];
+Employee *emp = [NSEntityDescription insertNewObjectForEntityForName:@&quot;Employee&quot; inManagedObjectContext:_context];
+emp.name = @&quot;liqinghai&quot;;
+emp.height = @(2.0);
+emp.createDate = [NSDate date];
+
+// 保存员工信息
+NSError *error = nil;
+[_context save:&amp;error];
+if (error) {
+    NSLog(@&quot;%@&quot;,error);
+}
+    }
+- (IBAction)dele:(id)sender {
+//查找数据
+//1.创建请求对象,指定要查找的表
+NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@&quot;Employee&quot;];
+
+//2.时间排序
+NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@&quot;createDate&quot; ascending:YES];//YES代表升序 NO 降序
+request.sortDescriptors = @[dateSort];
+
+
+//过滤条件 只想查找 zhangsan8
+NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;,@&quot;liqinghai&quot;];
+request.predicate = pre;
+
+
+//3.执行请求
+NSArray *allEmployee =  [_context executeFetchRequest:request error:nil];
+
+// 4. 删除信息
+for (Employee *emp in allEmployee) {
+    [_context deleteObject:emp];
+}
+}
+  - (IBAction)update:(id)sender {
+// 查找数据
+// 1. 创建请求对象， 指定要查找的表
+NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@&quot;Employee&quot;];
+
+// 2. 时间排序
+NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@&quot;createDate&quot; ascending:YES];
+request.sortDescriptors = @[dateSort];
+
+// 3. 过滤条件 只想查找 zhangsan8
+NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;, @&quot;liqinghai&quot;];
+request.predicate = pre;
+
+// 3. 执行请求
+NSError *error = nil;
+NSArray *allEmployee = [_context executeFetchRequest:request error:&amp;error];
+
+// 4. 更新
+for (Employee *emp in allEmployee) {
+    emp.height = @(12);
+    emp.name = @&quot;zhangbo&quot;;
+}
+[_context save:&amp;error];
+}
+
+- (IBAction)fetch:(id)sender {
+// 查询数据
+// 1. 创建请求对象，指定要查找的表
+NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@&quot;Employee&quot;];
+
+// 2. 时间排序
+NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@&quot;createDate&quot; ascending:YES];
+request.sortDescriptors = @[dateSort];
+
+// 3. 过滤条件 只想查找 zhangsan8
+NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;, @&quot;liqinghai&quot;];
+request.predicate = pre;
+
+// 3. 执行请求
+NSError *error = nil;
+NSArray *allEmployee = [_context executeFetchRequest:request error:&amp;error];
+if (error) {
+    NSLog(@&quot;%@&quot;,error);
+}
+
+//NSLog(@&quot;%@&quot;,allEmployee);
+for (Employee *emp in allEmployee) {
+    NSLog(@&quot;%@ %@ %@&quot;,emp.name,emp.height,emp.createDate);
+  } 
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/04/CoreData基础教程/" data-id="ciovb6gau0001u1s6ptt6ji3u" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iOS截取整个屏幕" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/04/iOS截取整个屏幕/" class="article-date">
+  <time datetime="2016-05-04T04:54:06.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>+(UIImage*) imageByCaptureScreen  {
+   if(UIGraphicsBeginImageContextWithOptions!=NULL)
+{
+UIGraphicsBeginImageContextWithOptions([UIScreenmainScreen].bounds.size,NO,0);
+}
+else
+{
+UIGraphicsBeginImageContext([UIScreenmainScreen].bounds.size);
+}
+CGContextRefcontext =UIGraphicsGetCurrentContext();
+for(UIWindow*windowin[[UIApplicationsharedApplication]windows])
+{
+if(![windowrespondsToSelector:@selector(screen)] || [windowscreen] == [UIScreenmainScreen])
+{
+CGContextSaveGState(context);
+CGContextTranslateCTM(context, [windowcenter].x, [windowcenter].y);
+CGContextConcatCTM(context, [windowtransform]);
+if(IOS7_OR_LATER)
+{
+CGContextTranslateCTM(context,
+-[windowbounds].size.width* [[windowlayer]anchorPoint].x,
+-[windowbounds].size.height* [[windowlayer]anchorPoint].y);
+}
+else
+{
+CGContextTranslateCTM(context,
+-[windowbounds].size.width* [[windowlayer]anchorPoint].x,
+-[windowbounds].size.height* [[windowlayer]anchorPoint].y-20);
+}
+[[windowlayer]renderInContext:context];
+
+CGContextRestoreGState(context);
+
+}
+
+}
+
+UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
+
+UIGraphicsEndImageContext();
+
+returnimage;
+
+ }
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/04/iOS截取整个屏幕/" data-id="ciovb6gbe0008u1s6b6z6up8n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iOS-官方文档阅读说明" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/04/iOS-官方文档阅读说明/" class="article-date">
+  <time datetime="2016-05-04T04:54:06.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>首先给大家看下官方文档的组织架构截图<br><img src="http://upload-images.jianshu.io/upload_images/1704994-77fa0af2d161c6df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>系统四个层次分别为下面4个从上到下。</p>
+<ul>
+<li>Coco Touch Layer ——</li>
+<li>Media Layer——</li>
+<li>Core Services Layer ——</li>
+<li>Core OS Layer ——</li>
+<li>Audio &amp; Video —— 音视频</li>
+<li>Data Management —— 数据管理。</li>
+<li>General —— 一般性的问题。</li>
+<li>Graphics &amp; Animation —— 图形和动画。</li>
+<li>Languages &amp; Utilities —— 语言和工具，Objective-C的一些知识，App Store的管理工具等。</li>
+<li>Mathematical Computation —— 数学计算。</li>
+<li>Networking &amp; Internet —— 网络问题。</li>
+<li>Performance —— 性能。</li>
+<li>Security —— 安全。</li>
+<li>Swift</li>
+<li>User Experience —— 用户体验。</li>
+<li>Xcode</li>
+</ul>
+<ol>
+<li>Sample Code ——是一些苹果官方推出的 Demo</li>
+<li>Guides —— 指南，指南是Xcode里面最酷最好的部分，学会看指南则大多数情况完全不用买书。Xcode文档里面的指南，就是一个一个问题的，从一个问题，或者系统的一个方面出发，一步一步详细介绍怎么使用Cocoa库的文档。一般程序员比较熟悉的是Reference，就是你查某个类、方法、函数的文档时候，冒出来的东西。那些其实是一点一点的细碎知识，光看那些东西就完全没有脉络。而Guides就是帮你整理好的学习的脉络。</li>
+<li>Reference —— 参考资料。一个一个框架一个一个类组织起来的文档，包含了每个方法的使用方法。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/04/iOS-官方文档阅读说明/" data-id="ciovb6gbj0009u1s6rhh0ejie" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-第3章-接口与-API设计" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/04/第3章-接口与-API设计/" class="article-date">
+  <time datetime="2016-05-04T04:54:06.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##第15条：用前缀避免命名空间冲突<br>选择与你的公司、应用程序或二者皆有关联之名称作为类名的前缀，并在所有代码中均使用这一前缀。<br>若自己开发的程序库中用到了第三方库，则应为其中的名称加上前缀。</p>
+<p>##第16条：提供“全能初始化方法”<br>在类中提供一个全能初始化方法，并与文档中指出。其他初始化方法均应调用此方法。<br>若全能初始化方法与超类不同，则需覆写超类中的对应方法。<br>如果超类的初始化方法不适应于子类，那么应覆写这个超类方法，并在其中抛出异常。</p>
+<p>##第17条：实现 description 方法<br>实现 description 方法返回一个有意义的字符串，用以描述该实例。<br>若想在调试时打印更详尽的对象描述信息，则应实现 debugDescription 方法。</p>
+<p>##第18条：尽量使用不可变对象<br>尽量创建不可变对象。<br>若某属性仅可用于对象内部修改，则在“延展”中将其 readonly 属性扩展为 readwrite 属性。<br>不要把可变的 collection 作为属性公开，而应提供相关方法，以此修改对象中的可变 collection。</p>
+<p>##第19条：使用清晰而协调的命名方式</p>
+<p>##第20条：为私有方法名加前缀</p>
+<p>##第21条：理解 Object—C 错误模型</p>
+<p>##第22条：理解 N�SCoping协议</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/04/第3章-接口与-API设计/" data-id="ciovb6gbn000bu1s6vhq6n4s0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Foundation-study(一)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/04/Foundation-study(一)/" class="article-date">
+  <time datetime="2016-05-04T04:54:06.000Z" itemprop="datePublished">2016-05-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一：About-Memory-Management"><a href="#一：About-Memory-Management" class="headerlink" title="一：About Memory Management"></a>一：About Memory Management</h4><p><img src="http://upload-images.jianshu.io/upload_images/1704994-1c7d7245c9a37f10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="memory_management_2x.png"></p>
+<p>MRR(manual retain-release)：在运行时环境下通过自动引用计数管理内存，手动管理。<br>ARC：系统在程序编译器就插入了适当的内存管理语句，同样是采用自动引用计数。<br>两种情况下导致内存问题</p>
+<ol>
+<li>释放或复写正在使用的内存</li>
+<li>内存泄露</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/05/04/Foundation-study(一)/" data-id="ciovb6gao0000u1s696a2sxt6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/26/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/04/iOS笔试题(一)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/04/iOS笔试题(二)/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/04/HTTP-TCP-Socket/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/04/面试总结（持续更新中）/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
