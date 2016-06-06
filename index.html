@@ -1,43 +1,45 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo</title>
+  <title>小海之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="bruce sha&apos;s blog | java | scala | bi">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="小海之家">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description">
+<meta property="og:site_name" content="小海之家">
+<meta property="og:description" content="bruce sha&apos;s blog | java | scala | bi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description">
+<meta name="twitter:title" content="小海之家">
+<meta name="twitter:description" content="bruce sha&apos;s blog | java | scala | bi">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="小海之家" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
   <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
   
-
 </head>
-
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
+<div id="container">
+  <div id="wrap">
+    <header id="header">
   <div id="banner"></div>
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">小海之家</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">码农，程序猿，数据分析大师</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -56,18 +58,25 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
       </div>
     </div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main">
+    <div class="outer">
+      <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java第二天-Java基本语法1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/26/hello-world/" class="article-date">
-  <time datetime="2016-05-26T05:45:31.000Z" itemprop="datePublished">2016-05-26</time>
+    <a href="/2016/06/04/Java第二天-Java基本语法1/" class="article-date">
+  <time datetime="2016-06-04T08:55:32.000Z" itemprop="datePublished">2016-06-04</time>
 </a>
     
   </div>
@@ -78,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/26/hello-world/">Hello World</a>
+      <a class="article-title" href="/2016/06/04/Java第二天-Java基本语法1/">Java第二天-Java基本语法1</a>
     </h1>
   
 
@@ -86,21 +95,85 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id="Java语言基本组成"><a href="#Java语言基本组成" class="headerlink" title="Java语言基本组成"></a>Java语言基本组成</h2><h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><ul>
+<li>在程序中自定义的一些名称</li>
+<li>由26个英文字母大小写，数字：0-9符号:_$组成</li>
+<li><p>定义合法标识符规则：</p>
+<p>数字不可以开头。<br>不可以使用关键字</p>
+</li>
+<li>Java中严格区分大小写<h4 id="Java中的名称规范"><a href="#Java中的名称规范" class="headerlink" title="Java中的名称规范"></a>Java中的名称规范</h4></li>
+<li>包名：多单词组成时所有字母小写。xyz</li>
+<li>类名接口名：多单词组成时，所有单词首字母大写。XxYyZz</li>
+<li>变量名和函数名：多单词组成时，首字母小写，后面首字母大写。xxxYyyZzz</li>
+<li>常量名：所有字母都大写。多单词时每个单词都用下划线连接。XXX_YYY_ZZZ</li>
+</ul>
+<h3 id="常量和变量"><a href="#常量和变量" class="headerlink" title="常量和变量"></a>常量和变量</h3><p>每个字节有8位（二进制位）<br>十进制–&gt;二进制 ：除以2取余数<br>二进制–&gt;十进制 ：乘以2的幂数<br>十进制–&gt;十六进制 ：先转成二进制，再转成十六进制</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/26/hello-world/" data-id="ciovb6gb00004u1s6i09idyv5" class="article-share-link">Share</a>
       
+        <a data-url="http://yoursite.com/2016/06/04/Java第二天-Java基本语法1/" data-id="cip3qklez0005ubs6vqqxjaq9" class="article-share-link" data-share="baidu" data-title="Java第二天-Java基本语法1">分享到</a>
+      
+
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java第一天-Java概述" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/04/Java第一天-Java概述/" class="article-date">
+  <time datetime="2016-06-04T01:36:00.000Z" itemprop="datePublished">2016-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/04/Java第一天-Java概述/">Java第一天 - Java概述</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java第一天-Java概述"><a href="#Java第一天-Java概述" class="headerlink" title="Java第一天 - Java概述"></a>Java第一天 - Java概述</h1><h2 id="dos命令行："><a href="#dos命令行：" class="headerlink" title="dos命令行："></a>dos命令行：</h2><ul>
+<li>dir :列出当期目录下的文件以及文件夹</li>
+<li>md  :创建目录</li>
+<li>rd  :删除目录</li>
+<li>cd  :进入指定目录</li>
+<li>cd..:退回到上一级目录</li>
+<li>cd/ :退回到根目录</li>
+<li>del :删除文件</li>
+<li>exit:推出dos命令行</li>
+</ul>
+<h2 id="Java语言的三种技术架构"><a href="#Java语言的三种技术架构" class="headerlink" title="Java语言的三种技术架构"></a>Java语言的三种技术架构</h2><h3 id="J2EE-Java-2-Platform-Enterprise-Edition-企业版"><a href="#J2EE-Java-2-Platform-Enterprise-Edition-企业版" class="headerlink" title="J2EE(Java 2 Platform Enterprise Edition) 企业版"></a>J2EE(Java 2 Platform Enterprise Edition) 企业版</h3><p>是为开发企业环境下的应用程序提供的一套解决方案。<br>该技术体系中包含的技术如 Servlet Jsp等,主要针对于Web应用程序开发。</p>
+<h3 id="J2SE-Java-2-Platform-Standard-Edition-标准版"><a href="#J2SE-Java-2-Platform-Standard-Edition-标准版" class="headerlink" title="J2SE(Java 2 Platform Standard Edition) 标准版"></a>J2SE(Java 2 Platform Standard Edition) 标准版</h3><p>是为开发普通桌面和商务应用程序提供的解决方案。 该技术体系是其他两者的基础,可以完成一些桌面应用程序的开发。 比如Java版的扫雷。</p>
+<h3 id="J2ME-Java-2-Platform-Micro-Edition-小型版"><a href="#J2ME-Java-2-Platform-Micro-Edition-小型版" class="headerlink" title="J2ME(Java 2 Platform Micro Edition) 小型版"></a>J2ME(Java 2 Platform Micro Edition) 小型版</h3><p>是为开发电子消费产品和嵌入式设备提供的解决方案。<br>该技术体系主要应用于小型电子消费类产品,如手机中的应用程序等。</p>
+<p>Java5.0版本后,更名为 JAVAEE JAVASE JAVAME</p>
+<h2 id="Java语言的特点：跨平台性"><a href="#Java语言的特点：跨平台性" class="headerlink" title="Java语言的特点：跨平台性"></a>Java语言的特点：跨平台性</h2><h3 id="JVM（JVM-Java-Vitual-Machine）Java虚拟机"><a href="#JVM（JVM-Java-Vitual-Machine）Java虚拟机" class="headerlink" title="JVM（JVM Java Vitual Machine）Java虚拟机"></a>JVM（JVM Java Vitual Machine）Java虚拟机</h3><h3 id="JRE-Java-Runtime-Environment-Java运行环境"><a href="#JRE-Java-Runtime-Environment-Java运行环境" class="headerlink" title="JRE(Java Runtime Environment)Java运行环境"></a>JRE(Java Runtime Environment)Java运行环境</h3><p>包括Java虚拟机(JVM Java Virtual Machine)和Java程序所需的核心类 库等,如果想要运行一个开发好的Java程序,计算机中只需要安装JRE 即可。</p>
+<h3 id="JDK-Java-Development-Kit-Java开发工具包"><a href="#JDK-Java-Development-Kit-Java开发工具包" class="headerlink" title="JDK(Java Development Kit)Java开发工具包"></a>JDK(Java Development Kit)Java开发工具包</h3><p>JDK是提供给Java开发人员使用的,其中包含了java的开发工具,也包<br>括了JRE。所以安装了JDK,就不用在单独安装JRE了。 其中的开发工具:编译工具(javac.exe) 打包工具(jar.exe)等</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/06/04/Java第一天-Java概述/" data-id="cip3qklep0001ubs6ct2vvrl2" class="article-share-link" data-share="baidu" data-title="Java第一天 - Java概述">分享到</a>
+      
+
+      
+
       
     </footer>
   </div>
@@ -196,8 +269,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/04/iOS笔试题(一)/" data-id="ciovb6gbb0007u1s6drxozckx" class="article-share-link">Share</a>
       
+        <a data-url="http://yoursite.com/2016/05/04/iOS笔试题(一)/" data-id="cip3qklfe000cubs6omlk66b9" class="article-share-link" data-share="baidu" data-title="">分享到</a>
+      
+
+      
+
       
     </footer>
   </div>
@@ -236,8 +313,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/04/iOS笔试题(二)/" data-id="ciovb6gb20006u1s6rzqjd9cj" class="article-share-link">Share</a>
       
+        <a data-url="http://yoursite.com/2016/05/04/iOS笔试题(二)/" data-id="cip3qklf60009ubs6eki1jont" class="article-share-link" data-share="baidu" data-title="">分享到</a>
+      
+
+      
+
       
     </footer>
   </div>
@@ -302,8 +383,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/04/HTTP-TCP-Socket/" data-id="ciovb6gay0003u1s65eo4qu3g" class="article-share-link">Share</a>
       
+        <a data-url="http://yoursite.com/2016/05/04/HTTP-TCP-Socket/" data-id="cip3qklew0003ubs6ig45y850" class="article-share-link" data-share="baidu" data-title="">分享到</a>
+      
+
+      
+
       
     </footer>
   </div>
@@ -312,428 +397,42 @@
 
 
   
-    <article id="post-面试总结（持续更新中）" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/04/面试总结（持续更新中）/" class="article-date">
-  <time datetime="2016-05-04T05:16:03.000Z" itemprop="datePublished">2016-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>面试总结（持续更新中）</p>
-<p>3月1日面试（知春路一小公司）由浅入深</p>
-<p>1.应用程序的生命周期。</p>
-<p>有storyboard情况下:</p>
-<p>1.main函数</p>
-<p>2.UIApplicationMain</p>
-<ul>
-<li><p>创建UIApplication对象</p>
-</li>
-<li><p>创建UIApplication的delegate对象</p>
-</li>
-</ul>
-<p>3.根据Info.plist获得最主要storyboard的文件名,加载最主要的storyboard(有storyboard)</p>
-<ul>
-<li><p>创建UIWindow</p>
-</li>
-<li><p>创建和设置UIWindow的rootViewController</p>
-</li>
-<li><p>显示窗口</p>
-</li>
-</ul>
-<p>没有storyboard情况下:</p>
-<p>1.main函数</p>
-<p>2.UIApplicationMain</p>
-<ul>
-<li><p>创建UIApplication对象</p>
-</li>
-<li><p>创建UIApplication的delegate对象</p>
-</li>
-</ul>
-<p>3.delegate对象开始处理(监听)系统事件(没有storyboard)</p>
-<ul>
-<li><p>程序启动完毕的时候, 就会调用代理的application:didFinishLaunchingWithOptions:方法</p>
-</li>
-<li><p>在application:didFinishLaunchingWithOptions:中创建UIWindow</p>
-</li>
-<li><p>创建和设置UIWindow的rootViewController</p>
-</li>
-<li><p>显示窗口</p>
-</li>
-</ul>
-<p>2.@property()各种属性</p>
-<p>3.深拷贝与浅拷贝</p>
-<p>浅拷贝只拷贝指针，不会产生新的对象；深拷贝是内容拷贝，产生了新的对象。</p>
-<p>4.runloop</p>
-<p>NSRunLoop是IOS消息机制的处理模式</p>
-<blockquote>
-<p>1.NSRunLoop的主要作用：控制NSRunLoop里面线程的执行和休眠，在有事情做的时候使当前NSRunLoop控制的线程工作，没有事情做让当前NSRunLoop的控制的线程休眠。</p>
-<p>2.NSRunLoop 就是一直在循环检测，从线程start到线程end，检测inputsource(如点击，双击等操作)异步事件，检测timesource同步事件，检测到输入源会执行处理函数，首先会产生通知，corefunction向线程添加runloop observers来监听事件，意在监听事件发生时来做处理。</p>
-<p>3.runloopmode是一个集合，包括监听：事件源，定时器，以及需通知的runloop observers</p>
-<ol>
-<li><p>只有在为你的程序创建次线程的时候，才需要运行run loop。对于程序的主线程而言，run loop是关键部分。Cocoa提供了运行主线程run loop的代码同时也会自动运行run loop。IOS程序UIApplication中的run方法在程序正常启动的时候就会启动run loop。如果你使用xcode提供的模板创建的程序，那你永远不需要自己去启动run loop</p>
-</li>
-<li><p>在多线程中，你需要判断是否需要run loop。如果需要run loop，那么你要负责配置run loop并启动。你不需要在任何情况下都去启动run loop。比如，你使用线程去处理一个预先定义好的耗时极长的任务时，你就可以毋需启动run loop。Run loop只在你要和线程有交互时才需要</p>
-</li>
-</ol>
-</blockquote>
-<p>5.gcd</p>
-<p>6.runtime runtime怎么添加属性方法</p>
-<p>运行时机制，runtime库里面包含了跟类、成员变量、方法相关的API，比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等 需要导入</p>
-<p>1.runtime，运行时机制，它是一套C语言库</p>
-<p>2.实际上我们编写的所有OC代码，最终都是转成了runtime库的东西，比如类转成了runtime库里面的结构体等数据类型，方法转成了runtime库里面的C语言函数，平时调方法都是转成了objc_msgSend函数（所以说OC有个消息发送机制）</p>
-<p>3.因此，可以说runtime是OC的底层实现，是OC的幕后执行者</p>
-<p>4.有了runtime库，能做什么事情呢？runtime库里面包含了跟类、成员变量、方法相关的API，比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等</p>
-<p>5.因此，有了runtime，想怎么改就怎么改</p>
-<p>7.数据本地化的几种方式（NSUserDefaufts,归档反归档，数据库，writeToFile）</p>
-<p>8.堆和栈的区别</p>
-<p>1.堆空间的内存是动态分配的，一般存放对象，并且需要手动释放内存</p>
-<p>2.栈空间的内存由系统自动分配，一般存放局部变量等，不需要手动管理内存</p>
-<p>category和extension区别</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/04/面试总结（持续更新中）/" data-id="ciovb6gby000eu1s61yt8iptm" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
-</article>
-
-
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
-    <article id="post-面试总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/04/面试总结/" class="article-date">
-  <time datetime="2016-05-04T05:05:24.000Z" itemprop="datePublished">2016-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>面试总结</p>
-<p>我是2点开始的面试，面试官基本是按照我简历上面写的技能挨着问的，接下来我会一一列举上这些问题。（大概的阐述一下，谢谢）</p>
-<ol>
-<li>企业版上线和AppStore上线的区别</li>
-</ol>
-<p>2.什么是面向对象（三大特征）</p>
-<p>3.delegate可以多继承么，block</p>
-<p>4.GCD，NSOperation的区别</p>
-<p>5.AFNetworking、MJRefresh</p>
-<p>6.svn、git</p>
-<p>7.最常见的一些Bug类型，并简述是如何解决他们的（线下和线上）</p>
-<p>8.runtime</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/04/面试总结/" data-id="ciovb6gbl000au1s6ywg00423" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-第2章----对象、消息、运行期" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/04/第2章----对象、消息、运行期/" class="article-date">
-  <time datetime="2016-05-04T05:05:01.000Z" itemprop="datePublished">2016-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>第2章 对象、消息、运行期</p>
-<p>第6条：理解属性这一概念</p>
-<p>可以使用@property语法来定义对象中所封装的数据。</p>
-<p>通过“特质”来指定存取数据所需的正确语句。</p>
-<p>在设置属性所对应的实例变量时，一定要遵从该属性所声明的语义。</p>
-<p>开发iOS程序是应尽量使用nonatomic属性，因为atomic属性会严重影响性能。</p>
-<p>@synthesize语法指定实例变量的名字。@synthesize firstName = _myFirstName;</p>
-<p>@dynamic：它会告诉编译器：不要自动创建实例变量和存储方法。</p>
-<p>assign：简单赋值操作。</p>
-<p>strong：设置方法先保留新值，并释放旧值，然后将新值设置上去。</p>
-<p>weak：设置方法既不保留新值，也不释放旧值。摧毁时，属性值清空（nil out）;</p>
-<p>unsafa_unretained:与assign相同，但摧毁时，属性值不会自动清空，与weak有区别。</p>
-<p>copy：设置方法不保留新值，而是将其拷贝。</p>
-<p>第7条：在对象内部尽量直接访问实例变量</p>
-<p>由于不经过OC的“方法派发”步骤，所以直接访问实例变量的速度较快。在这种情况下，编译器所生成的代码会直接访问保存对象实例变量的那块内存。</p>
-<p>直接访问实例变量时，不会调用其“设置方法”，这就绕过了为其属性所定义的“内存管理语义”。比方说，如果在ARC下直接访问一个声明为copy的属性，那么并不会拷贝该属性，只会保留新值，并释放旧值。</p>
-<p>如果直接访问实例变量，那么不会触发“键值观测”（KVO）通知。这样做是否会产生问题，还取决于具体的对象行为。</p>
-<p>通过属性来访问有助于排查与之相关的错误。</p>
-<p>在对象内部读取数据时，应该直接通过实例变量来读，而在写入数据时，则应通过属性来写。</p>
-<p>在初始化方法及dealloc方法中，总是应该直接通过实例变量来读写数据。</p>
-<p>有时会使用懒加载，这种情况下，需要通过属性来读取数据。</p>
-<p>第8条：理解“对象等同性”这一概念</p>
-<p>若想检测对象的等同性，请提供“isEqual：”与hash方法。</p>
-<p>相同的对象必须具有相同的哈希码，但是两个哈希码相同的对象却未必相同。</p>
-<p>不要盲目地逐个检测每条属性，而是应该依照具体需求来制定检测方案。</p>
-<p>编写hash方法时，应该使用计算速度快而且哈希码碰撞几率低的算法。</p>
-<p>第9条：以“类族模式”隐藏实现细节</p>
-<p>类族模式可以把实现细节隐藏在一套简单的公共接口后面。</p>
-<p>系统框架中经常使用类族。</p>
-<p>从类族的公共抽象基类中继承子类时要小心，若有开发文档，首先阅读。</p>
-<p>第10条：在既有类中使用关联对象存放自定义数据</p>
-<p>可以通过“关联对象”机制来把两个对象连起来。</p>
-<p>定义关联对象时可指定内存管理语义，用以模仿定义属性时所采用的“拥有关系”与“非拥有关系”。</p>
-<p>只有在其他做法不可行时才应选择关联对象，因为这种做法通常会引入难以查找的bug。</p>
-<p>第11条：理解objc_msgSend的作用</p>
-<p>消息由接受者、选择子及参数构成。给某对象“发送消息（invoke a message）”也就是相当于在该对象上“调用方法”（call a method）。</p>
-<p>发给某对象的全部消息都要由“动态消息派发系统”（dynamic message dispatch sysytem）来处理，该系统会查出对应的方法，并执行其代码。</p>
-<p>第12条：理解消息转发机制</p>
-<p>若对象无法响应某个选择子，则进入消息转发流程。</p>
-<p>通过运行期的动态方法解析功能，我们可以在需要用到某个方法时再将其加入类中。</p>
-<p>对象可以把其无法解读的某些选择子转交给其他对象处理。</p>
-<p>经过上述两步之后，如果还是没有办法处理选择子，那就启动完整的消息转发机制。</p>
-<p>第13条：用“方法调配技术”调试“黑盒方法”</p>
-<p>在运行期，可以向类中新增或替换选择子所对应的方法实现。</p>
-<p>使用另一份实现来替换原有的方法实现，这道工序叫做“方法调配”，开发者常用此技术向原有实现中添加新功能。</p>
-<p>一般来说，只有调试程序的时候才需要在运行期修改方法实现，这种方法不易滥用。</p>
-<p>第14条：理解“类对象”的用意</p>
-<p>每个实例都有一个指向 Class 对象的指针，用以表明其类型，而这些 Class 对象则构成了类的继承体系。</p>
-<p>如果对象类型无法再编译期确定，那么就应该使用类型信息查询（is kind of class）来探知。</p>
-<p>尽量使用类型信息查询方法来确定对象类型，而不要直接比较类对象，因为某些对象可能实现了消息转发功能。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/04/第2章----对象、消息、运行期/" data-id="ciovb6gbq000du1s64i7ysp6e" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-第1章-----熟悉Objective-C" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/04/第1章-----熟悉Objective-C/" class="article-date">
-  <time datetime="2016-05-04T05:04:31.000Z" itemprop="datePublished">2016-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>###第1章 熟悉Objective-C</p>
-<p>第1条 ：了解Objective-C语言的起源</p>
-<p>Objective-C为C语言添加了面向对象特性，是其超集。Objective-C使用动态绑定的消息结构，也就是说，在运行时才会检查对象类型。接收一条消息之后，究竟应执行何种代码，由运行期环境而非编译器决定。</p>
-<p>理解C语言的核心概念有助于写好Objective-C程序。尤其要掌握内存模型与指针。</p>
-<p>指针内存分配在栈上，实例内存分配在堆上。</p>
-<p>第2条 ：在类的头文件中尽量少引入其他头文件</p>
-<p>除非确有必要，否则不要引入头文件。一般来说，应在某个类的头文件中使用向前声明来提及别的类，并在实现文件中引入那些类的头文件。这样做可以降低类之间的耦合（coupling）。</p>
-<p>有时无法使用向前声明，比如要声明某个类遵循一项协议。这种情况下，尽量把“该类遵循协议”的这条声明移至“class-continuation分类”中。如果不行的话，就把协议单独放在一个头文件中，然后将其引入。</p>
-<p>第3条 ：多用字面量语法，少用与之等价的方法</p>
-<p>应该使用字面量语法来创建字符串、数值、数组、字典。与创建此类对象的常规方法相比，这么做更加简明扼要。</p>
-<p>应该通过取下标操作来访问数组下标或字典中的键所对应的元素。</p>
-<p>用字面量语法创建数组或字典时，若值中有nil，则会抛出异常。因此，务必确保值中不含nil。</p>
-<p>NSString *someString = @”Effective Objective-C 2.0”;</p>
-<p>NSNumber *someNumber = @1;</p>
-<p>NSArray *array = @[@”cat”, @”dog”];   </p>
-<p>NSDictionary *dic = @{@”Matt”:@”firstName”, @”Leo”:@”lastName”};</p>
-<p>使用字面量语法创建出来的字符串、数组、字典对象都是不可变的（immutable）。若想要可变版本的对象，则需复制一份：</p>
-<p>NSMutableArray *mutableArray = [@[@1, @2, @3, @4, @5]  mutableCopy];</p>
-<p>第4条：多用类型常量，少用#define预处理指令</p>
-<p>不要用预处理指令定义常量。这样定义出来的常量不含类型信息，编译器只会在编译前据此执行查找与替换操作。即使有人重新定义了常量值，编译器也不会产生警告信息，这将导致应用程序中的常量值不一致。</p>
-<p>在实现文件中使用static const来定义“只在编译单元内可见的常量”（translation-unit-specific constant）。由于此类常量不在全局符号列表中，所以无需为其名称加前缀。例:在.m中static const NSTimeInterval kAnimationDuration = 0.3;</p>
-<p>在头文件中使用extern来声明全局变量，并在相关实现文件中定义其值。这种常量要出现在全局符号表中，所以其名称应加以区别，通常用与之相关的类名做前缀。例如：                      .h中： extern NSString <em>const EOCLoginManagerDidNotification;                                              .m中：NSString </em>const EOCLoginManagerDidNotification = @”EOCLoginManagerDidNotification”;</p>
-<p>第5条：用枚举表示状态、选项、状态码</p>
-<p>应该用枚举来表示状态机的状态、传递给方法的选项以及状态码等值，给这些值起个易懂的名字。</p>
-<p>如果把传递给某个方法的选项表示为枚举类型，而多个选项又可同时使用，那么就将个选项值定义为2的幂，以便通过按位或操作将其组合起来。</p>
-<p>用NS_ENUM与NS_OPTIONS宏来定义枚举类型，并指明其底层数据类型。这样做可以确保枚举是用开发者所选的底层数据类型实现出来的，而不会采用编译器所选的类型。</p>
-<p>在处理枚举类型的switch语句中不要实现default分支。这样的话，加入新枚举之后，编译器就会提示开发者：switch语句并未处理所有枚举。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/04/第1章-----熟悉Objective-C/" data-id="ciovb6gbo000cu1s6y5y73yz2" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Homebrew-简介及安装" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/04/Homebrew-简介及安装/" class="article-date">
-  <time datetime="2016-05-04T04:54:06.000Z" itemprop="datePublished">2016-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Homebrew官网：http-brew-sh-index-zh-cn-html"><a href="#Homebrew官网：http-brew-sh-index-zh-cn-html" class="headerlink" title="Homebrew官网：http://brew.sh/index_zh-cn.html"></a>Homebrew官网：<strong><a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">http://brew.sh/index_zh-cn.html</a></strong></h3><p> Homebrew简称 brew，是 Mac OSX 上的软件管理工具，能在 Mac 中方便的安装或者卸载软件。</p>
-<h3 id="Homebrew-安装打开终端，输入下面的命令即可进行安装"><a href="#Homebrew-安装打开终端，输入下面的命令即可进行安装" class="headerlink" title="Homebrew 安装打开终端，输入下面的命令即可进行安装"></a>Homebrew 安装打开终端，输入下面的命令即可进行安装</h3><pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-</code></pre><h3 id="安装过程如下图："><a href="#安装过程如下图：" class="headerlink" title="安装过程如下图："></a>安装过程如下图：</h3><p>由于本人在安装时未截图，故在网上找了张图放上。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1704994-7dcd2a483987bd7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="180847572326830.png"></p>
-<h3 id="HomeBrew-使用"><a href="#HomeBrew-使用" class="headerlink" title="HomeBrew 使用"></a>HomeBrew 使用</h3><p>搜索软件：</p>
-<pre><code>brew search 软件名 
-</code></pre><p>安装软件：</p>
-<pre><code>brew install 软件名
-</code></pre><p>卸载软件：</p>
-<pre><code>brew remove 软件名
-</code></pre><p>更多的，还请查看官网：<a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">http://brew.sh/index_zh-cn.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/04/Homebrew-简介及安装/" data-id="ciovb6gb10005u1s65beg5q8c" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Markdow学习" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/04/Markdow学习/" class="article-date">
-  <time datetime="2016-05-04T04:54:06.000Z" itemprop="datePublished">2016-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一：标题"><a href="#一：标题" class="headerlink" title="一：标题"></a>一：标题</h1><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h1 id="二：列表"><a href="#二：列表" class="headerlink" title="二：列表"></a>二：列表</h1><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><ul>
-<li>文本1</li>
-<li>文本2</li>
-<li>文本3<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3></li>
-</ul>
-<ol>
-<li>文本1</li>
-<li>文本2</li>
-<li>文本3</li>
-</ol>
-<h1 id="三：链接和图片"><a href="#三：链接和图片" class="headerlink" title="三：链接和图片"></a>三：链接和图片</h1><p><a href="www.baidu.com">Markdow学习</a><br><img src="http://upload-images.jianshu.io/upload_images/1704994-f1d6fdf7599d33a6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h1 id="四：引用"><a href="#四：引用" class="headerlink" title="四：引用"></a>四：引用</h1><blockquote>
-<p>一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。</p>
-</blockquote>
-<h1 id="五：粗体和斜体"><a href="#五：粗体和斜体" class="headerlink" title="五：粗体和斜体"></a>五：粗体和斜体</h1><p><strong>一盏灯</strong>，<em>一片昏黄</em></p>
-<h1 id="六：表格"><a href="#六：表格" class="headerlink" title="六：表格"></a>六：表格</h1><table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">right-aligned</td>
-<td style="text-align:right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<h1 id="七：代码块"><a href="#七：代码块" class="headerlink" title="七：代码块"></a>七：代码块</h1><pre><code>pragma mark 业务方法
-/**
- *  @author Leo-hai, 16-04-15 09:09:09
- *
- *  @brief  初始化界面
- */
--(void)initUI{
-  self.view.backgroundColor = [TKUIHelper colorWithHexString:@&quot;#eeeeee&quot;];
-[self addNavigationBar];
-//初始化滚动控制器
-self.scrollView = [[UIScrollView alloc]initWithFrame:self.view.bounds];
-self.scrollView.bounces = YES;
-self.scrollView.backgroundColor = [TKUIHelper colorWithHexString:@&quot;#eeeeee&quot;];
-//设置下拉刷新
-self.scrollView.header = [TKRefreshHeader headerWithRefreshingBlock:^{
-    [self refreshHome];
-}];
-
-[self.view addSubview:self.scrollView];
-}
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/05/04/Markdow学习/" data-id="ciovb6gaw0002u1s6ki3g54r6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
-  </nav>
 </section>
-        
-          <aside id="sidebar">
+      
+      <aside id="sidebar">
   
     
-
   
     
-
   
     
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
-
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">近期文章</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2016/05/26/hello-world/">Hello World</a>
+            <a href="/2016/06/04/Java第二天-Java基本语法1/">Java第二天-Java基本语法1</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/04/Java第一天-Java概述/">Java第一天 - Java概述</a>
           </li>
         
           <li>
@@ -748,8 +447,23 @@ self.scrollView.header = [TKRefreshHeader headerWithRefreshingBlock:^{
             <a href="/2016/05/04/HTTP-TCP-Socket/">(no title)</a>
           </li>
         
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
           <li>
-            <a href="/2016/05/04/面试总结（持续更新中）/">(no title)</a>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
           </li>
         
       </ul>
@@ -758,36 +472,70 @@ self.scrollView.header = [TKRefreshHeader headerWithRefreshingBlock:^{
 
   
 </aside>
-        
-      </div>
-      <footer id="footer">
+      
+    </div>
+    <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 John Doe<br>
+      &copy; 2016 Leo-hai<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
+  </div>
+  <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
 </nav>
-    
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- totop end -->
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
 
 
 <script src="/js/script.js"></script>
 
-  </div>
+</div>
 </body>
 </html>
