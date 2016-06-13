@@ -4,50 +4,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>小海之家</title>
+  <title>iOS截取整个屏幕 | 小海之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先给大家看下官方文档的组织架构截图
-系统四个层次分别为下面4个从上到下。
-
-Coco Touch Layer ——
-Media Layer——
-Core Services Layer ——
-Core OS Layer ——
-Audio &amp;amp; Video —— 音视频
-Data Management —— 数据管理。
-General —— 一般性的问题。
-Graphics &amp;amp; Ani">
+  <meta name="description" content="+(UIImage*) imageByCaptureScreen  {
+   if(UIGraphicsBeginImageContextWithOptions!=NULL)
+{
+UIGraphicsBeginImageContextWithOptions([UIScreenmainScreen].bounds.size,NO,0);
+}
+else
+{
+UIGraphicsBeginImageCo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小海之家">
-<meta property="og:url" content="http://yoursite.com/2016/05/04/iOS-官方文档阅读说明/index.html">
+<meta property="og:title" content="iOS截取整个屏幕">
+<meta property="og:url" content="http://yoursite.com/2016/04/05/iOS截取整个屏幕/index.html">
 <meta property="og:site_name" content="小海之家">
-<meta property="og:description" content="首先给大家看下官方文档的组织架构截图
-系统四个层次分别为下面4个从上到下。
-
-Coco Touch Layer ——
-Media Layer——
-Core Services Layer ——
-Core OS Layer ——
-Audio &amp;amp; Video —— 音视频
-Data Management —— 数据管理。
-General —— 一般性的问题。
-Graphics &amp;amp; Ani">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1704994-77fa0af2d161c6df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2016-05-04T04:54:06.000Z">
+<meta property="og:description" content="+(UIImage*) imageByCaptureScreen  {
+   if(UIGraphicsBeginImageContextWithOptions!=NULL)
+{
+UIGraphicsBeginImageContextWithOptions([UIScreenmainScreen].bounds.size,NO,0);
+}
+else
+{
+UIGraphicsBeginImageCo">
+<meta property="og:updated_time" content="2016-06-13T07:50:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小海之家">
-<meta name="twitter:description" content="首先给大家看下官方文档的组织架构截图
-系统四个层次分别为下面4个从上到下。
-
-Coco Touch Layer ——
-Media Layer——
-Core Services Layer ——
-Core OS Layer ——
-Audio &amp;amp; Video —— 音视频
-Data Management —— 数据管理。
-General —— 一般性的问题。
-Graphics &amp;amp; Ani">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1704994-77fa0af2d161c6df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="iOS截取整个屏幕">
+<meta name="twitter:description" content="+(UIImage*) imageByCaptureScreen  {
+   if(UIGraphicsBeginImageContextWithOptions!=NULL)
+{
+UIGraphicsBeginImageContextWithOptions([UIScreenmainScreen].bounds.size,NO,0);
+}
+else
+{
+UIGraphicsBeginImageCo">
   
     <link rel="alternative" href="/atom.xml" title="小海之家" type="application/atom+xml">
   
@@ -104,53 +93,82 @@ Graphics &amp;amp; Ani">
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-iOS-官方文档阅读说明" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-iOS截取整个屏幕" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/04/iOS-官方文档阅读说明/" class="article-date">
-  <time datetime="2016-05-04T04:54:06.000Z" itemprop="datePublished">2016-05-04</time>
+    <a href="/2016/04/05/iOS截取整个屏幕/" class="article-date">
+  <time datetime="2016-04-05T09:36:00.000Z" itemprop="datePublished">2016-04-05</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS截取整个屏幕
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先给大家看下官方文档的组织架构截图<br><img src="http://upload-images.jianshu.io/upload_images/1704994-77fa0af2d161c6df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>系统四个层次分别为下面4个从上到下。</p>
-<ul>
-<li>Coco Touch Layer ——</li>
-<li>Media Layer——</li>
-<li>Core Services Layer ——</li>
-<li>Core OS Layer ——</li>
-<li>Audio &amp; Video —— 音视频</li>
-<li>Data Management —— 数据管理。</li>
-<li>General —— 一般性的问题。</li>
-<li>Graphics &amp; Animation —— 图形和动画。</li>
-<li>Languages &amp; Utilities —— 语言和工具，Objective-C的一些知识，App Store的管理工具等。</li>
-<li>Mathematical Computation —— 数学计算。</li>
-<li>Networking &amp; Internet —— 网络问题。</li>
-<li>Performance —— 性能。</li>
-<li>Security —— 安全。</li>
-<li>Swift</li>
-<li>User Experience —— 用户体验。</li>
-<li>Xcode</li>
-</ul>
-<ol>
-<li>Sample Code ——是一些苹果官方推出的 Demo</li>
-<li>Guides —— 指南，指南是Xcode里面最酷最好的部分，学会看指南则大多数情况完全不用买书。Xcode文档里面的指南，就是一个一个问题的，从一个问题，或者系统的一个方面出发，一步一步详细介绍怎么使用Cocoa库的文档。一般程序员比较熟悉的是Reference，就是你查某个类、方法、函数的文档时候，冒出来的东西。那些其实是一点一点的细碎知识，光看那些东西就完全没有脉络。而Guides就是帮你整理好的学习的脉络。</li>
-<li>Reference —— 参考资料。一个一个框架一个一个类组织起来的文档，包含了每个方法的使用方法。</li>
-</ol>
+        <pre><code>+(UIImage*) imageByCaptureScreen  {
+   if(UIGraphicsBeginImageContextWithOptions!=NULL)
+{
+UIGraphicsBeginImageContextWithOptions([UIScreenmainScreen].bounds.size,NO,0);
+}
+else
+{
+UIGraphicsBeginImageContext([UIScreenmainScreen].bounds.size);
+}
+CGContextRefcontext =UIGraphicsGetCurrentContext();
+for(UIWindow*windowin[[UIApplicationsharedApplication]windows])
+{
+if(![windowrespondsToSelector:@selector(screen)] || [windowscreen] == [UIScreenmainScreen])
+{
+CGContextSaveGState(context);
+CGContextTranslateCTM(context, [windowcenter].x, [windowcenter].y);
+CGContextConcatCTM(context, [windowtransform]);
+if(IOS7_OR_LATER)
+{
+CGContextTranslateCTM(context,
+-[windowbounds].size.width* [[windowlayer]anchorPoint].x,
+-[windowbounds].size.height* [[windowlayer]anchorPoint].y);
+}
+else
+{
+CGContextTranslateCTM(context,
+-[windowbounds].size.width* [[windowlayer]anchorPoint].x,
+-[windowbounds].size.height* [[windowlayer]anchorPoint].y-20);
+}
+[[windowlayer]renderInContext:context];
 
+CGContextRestoreGState(context);
+
+}
+
+}
+
+UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
+
+UIGraphicsEndImageContext();
+
+returnimage;
+
+ }
+</code></pre>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/05/04/iOS-官方文档阅读说明/" data-id="cip3rpvkk0004ybs62bzhyoui" class="article-share-link" data-share="baidu" data-title="">分享到</a>
+        <a data-url="http://yoursite.com/2016/04/05/iOS截取整个屏幕/" data-id="cipavehlk0006eqrirspoxbrj" class="article-share-link" data-share="baidu" data-title="iOS截取整个屏幕">分享到</a>
       
 
       
-        <a href="http://yoursite.com/2016/05/04/iOS-官方文档阅读说明/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://yoursite.com/2016/04/05/iOS截取整个屏幕/#ds-thread" class="article-comment-link">评论</a>
       
 
       
@@ -160,19 +178,19 @@ Graphics &amp;amp; Ani">
     
 <nav id="article-nav">
   
-    <a href="/2016/05/04/iOS截取整个屏幕/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/06/04/Java学习笔记/Java第一天-Java概述/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">
         
-          (no title)
+          Java第一天 - Java概述
         
       </div>
     </a>
   
   
-    <a href="/2016/05/04/Markdow学习/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/04/iOS-官方文档阅读说明/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">iOS-官方文档阅读说明</div>
     </a>
   
 </nav>
@@ -182,7 +200,7 @@ Graphics &amp;amp; Ani">
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2016/05/04/iOS-官方文档阅读说明/" data-title="" data-url="http://yoursite.com/2016/05/04/iOS-官方文档阅读说明/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/04/05/iOS截取整个屏幕/" data-title="iOS截取整个屏幕" data-url="http://yoursite.com/2016/04/05/iOS截取整个屏幕/"></div>
   </section>
 </section>
       
@@ -198,7 +216,7 @@ Graphics &amp;amp; Ani">
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -210,23 +228,23 @@ Graphics &amp;amp; Ani">
       <ul>
         
           <li>
-            <a href="/2016/06/04/Java第二天-Java基本语法1/">Java第二天-Java基本语法1</a>
+            <a href="/2016/06/10/Java学习笔记/Java第三天-Java基本语法2/">Java第三天-Java基本语法2</a>
           </li>
         
           <li>
-            <a href="/2016/06/04/Java第一天-Java概述/">Java第一天 - Java概述</a>
+            <a href="/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/">Java第二天-Java基本语法1</a>
           </li>
         
           <li>
-            <a href="/2016/05/04/iOS笔试题(一)/">(no title)</a>
+            <a href="/2016/06/04/Java学习笔记/Java第一天-Java概述/">Java第一天 - Java概述</a>
           </li>
         
           <li>
-            <a href="/2016/05/04/iOS笔试题(二)/">(no title)</a>
+            <a href="/2016/04/05/iOS截取整个屏幕/">iOS截取整个屏幕</a>
           </li>
         
           <li>
-            <a href="/2016/05/04/HTTP-TCP-Socket/">(no title)</a>
+            <a href="/2016/04/04/iOS-官方文档阅读说明/">iOS-官方文档阅读说明</a>
           </li>
         
       </ul>

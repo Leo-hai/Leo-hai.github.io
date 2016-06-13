@@ -4,27 +4,48 @@
 <head>
   <meta charset="utf-8">
   
-  <title>CoreData基础教程 | 小海之家</title>
+  <title>Java第二天-Java基本语法1 | 小海之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用CoreData来保存数据
-创建DataModel，创建Entity，添加属性，创建NSManagedObject subclass关联创建的实体类。自动生成代码类，然后在对应的viewController导入实体类头文件。
-//  1. 初始化上下文
-NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
+  <meta name="description" content="Java语言基本组成关键字标识符
+在程序中自定义的一些名称
+由26个英文字母大小写，数字：0-9符号:_$组成
+定义合法标识符规则：
+数字不可以开头。不可以使用关键字
+
+Java中严格区分大小写Java中的名称规范
+包名：多单词组成时所有字母小写。xyz
+类名接口名：多单词组成时，所有单词首字母大写。XxYyZz
+变量名和函数名：多单词组成时，首字母小写，后面首字母大写。xxxYyyZzz
+常量名">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CoreData基础教程">
-<meta property="og:url" content="http://yoursite.com/2016/03/14/CoreData基础教程/index.html">
+<meta property="og:title" content="Java第二天-Java基本语法1">
+<meta property="og:url" content="http://yoursite.com/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/index.html">
 <meta property="og:site_name" content="小海之家">
-<meta property="og:description" content="使用CoreData来保存数据
-创建DataModel，创建Entity，添加属性，创建NSManagedObject subclass关联创建的实体类。自动生成代码类，然后在对应的viewController导入实体类头文件。
-//  1. 初始化上下文
-NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
-<meta property="og:updated_time" content="2016-06-13T05:50:42.000Z">
+<meta property="og:description" content="Java语言基本组成关键字标识符
+在程序中自定义的一些名称
+由26个英文字母大小写，数字：0-9符号:_$组成
+定义合法标识符规则：
+数字不可以开头。不可以使用关键字
+
+Java中严格区分大小写Java中的名称规范
+包名：多单词组成时所有字母小写。xyz
+类名接口名：多单词组成时，所有单词首字母大写。XxYyZz
+变量名和函数名：多单词组成时，首字母小写，后面首字母大写。xxxYyyZzz
+常量名">
+<meta property="og:updated_time" content="2016-06-13T02:16:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CoreData基础教程">
-<meta name="twitter:description" content="使用CoreData来保存数据
-创建DataModel，创建Entity，添加属性，创建NSManagedObject subclass关联创建的实体类。自动生成代码类，然后在对应的viewController导入实体类头文件。
-//  1. 初始化上下文
-NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
+<meta name="twitter:title" content="Java第二天-Java基本语法1">
+<meta name="twitter:description" content="Java语言基本组成关键字标识符
+在程序中自定义的一些名称
+由26个英文字母大小写，数字：0-9符号:_$组成
+定义合法标识符规则：
+数字不可以开头。不可以使用关键字
+
+Java中严格区分大小写Java中的名称规范
+包名：多单词组成时所有字母小写。xyz
+类名接口名：多单词组成时，所有单词首字母大写。XxYyZz
+变量名和函数名：多单词组成时，首字母小写，后面首字母大写。xxxYyyZzz
+常量名">
   
     <link rel="alternative" href="/atom.xml" title="小海之家" type="application/atom+xml">
   
@@ -81,10 +102,10 @@ NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-CoreData基础教程" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-Java学习笔记/Java第二天-Java基本语法1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/03/14/CoreData基础教程/" class="article-date">
-  <time datetime="2016-03-14T09:36:00.000Z" itemprop="datePublished">2016-03-14</time>
+    <a href="/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/" class="article-date">
+  <time datetime="2016-06-04T08:55:32.000Z" itemprop="datePublished">2016-06-04</time>
 </a>
     
   </div>
@@ -95,7 +116,7 @@ NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
         
   
     <h1 class="article-title" itemprop="name">
-      CoreData基础教程
+      Java第二天-Java基本语法1
     </h1>
   
 
@@ -103,115 +124,44 @@ NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="使用CoreData来保存数据"><a href="#使用CoreData来保存数据" class="headerlink" title="使用CoreData来保存数据"></a>使用CoreData来保存数据</h2><ol>
-<li><p>创建DataModel，创建Entity，添加属性，创建NSManagedObject subclass关联创建的实体类。自动生成代码类，然后在对应的viewController导入实体类头文件。</p>
-<pre><code>//  1. 初始化上下文
-NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-
-// 2. 添加持久化存储
-// 2.1 模型文件 描述表结构的文件
-NSManagedObjectModel *companyModel = [NSManagedObjectModel mergedModelFromBundles:nil];
-
-// 2.2 持久化存储调用器
-NSPersistentStoreCoordinator *store = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:companyModel];
-NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-
-// 数据库的完整路径
-NSString *sqlitePath = [doc stringByAppendingString:@&quot;company.sqlite&quot;];
-// 保存一个sqlite文件的话，必须要知道表结构和sqlite的文件路径
-
-// 2.3 告诉coredata数据存储在一个sqlite文件
-NSError *error = nil;
-[store addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:sqlitePath] options:nil error:&amp;error];
-if (error) {
-    NSLog(@&quot;%@&quot;,error);
-}
-</code></pre><p> context.persistentStoreCoordinator = store;<br> _context = context;</p>
-<ul>
-<li><p>(IBAction)add:(id)sender {<br>// 添加员工<br>// 1.创建一个员工对象<br>// 用coredata创建对象不能使用下面的方法<br> //    Employee <em>emp = [[Employee alloc] init];<br>Employee </em>emp = [NSEntityDescription insertNewObjectForEntityForName:@”Employee” inManagedObjectContext:_context];<br>emp.name = @”liqinghai”;<br>emp.height = @(2.0);<br>emp.createDate = [NSDate date];</p>
-<p>// 保存员工信息<br>NSError *error = nil;<br>[_context save:&amp;error];<br>if (error) {<br> NSLog(@”%@”,error);<br>}<br> }</p>
-<ul>
-<li>(IBAction)dele:(id)sender {<br>//查找数据<br>//1.创建请求对象,指定要查找的表<br>NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@”Employee”];</li>
-</ul>
-<p>//2.时间排序<br>NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@”createDate” ascending:YES];//YES代表升序 NO 降序<br>request.sortDescriptors = @[dateSort];</p>
+        <h2 id="Java语言基本组成"><a href="#Java语言基本组成" class="headerlink" title="Java语言基本组成"></a>Java语言基本组成</h2><h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><ul>
+<li>在程序中自定义的一些名称</li>
+<li>由26个英文字母大小写，数字：0-9符号:_$组成</li>
+<li><p>定义合法标识符规则：</p>
+<p>数字不可以开头。<br>不可以使用关键字</p>
 </li>
+<li>Java中严格区分大小写<h4 id="Java中的名称规范"><a href="#Java中的名称规范" class="headerlink" title="Java中的名称规范"></a>Java中的名称规范</h4></li>
+<li>包名：多单词组成时所有字母小写。xyz</li>
+<li>类名接口名：多单词组成时，所有单词首字母大写。XxYyZz</li>
+<li>变量名和函数名：多单词组成时，首字母小写，后面首字母大写。xxxYyyZzz</li>
+<li>常量名：所有字母都大写。多单词时每个单词都用下划线连接。XXX_YYY_ZZZ</li>
 </ul>
-</li>
-</ol>
-<pre><code>//过滤条件 只想查找 zhangsan8
-NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;,@&quot;liqinghai&quot;];
-request.predicate = pre;
+<h3 id="常量和变量"><a href="#常量和变量" class="headerlink" title="常量和变量"></a>常量和变量</h3><p>每个字节有8位（二进制位）<br>十进制–&gt;二进制 ：除以2取余数<br>二进制–&gt;十进制 ：乘以2的幂数<br>十进制–&gt;十六进制 ：先转成二进制，再转成十六进制</p>
+<p>负数的二进制表现形式：二进制取反 再 + 1<br>取反（将二进制的1变成0，0变成1） 负数的最高位都是1</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>变量：就是将不确定的数据进行存储。也就是需要在内存中开辟一个空间。</p>
+<h4 id="数值型："><a href="#数值型：" class="headerlink" title="数值型："></a>数值型：</h4><pre><code>整数类型
+byte（-2^7~127）
+short()
+int(2^31)
+long()
 
+浮点类型
+float
+double
+</code></pre><h4 id="字符型"><a href="#字符型" class="headerlink" title="字符型"></a>字符型</h4><pre><code>char
+</code></pre><h4 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h4><pre><code>boolean
+</code></pre><h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><h2 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h2><p>while， do-while， for</p>
+<p>break：跳出循环<br>continue：只能作用于循环结构。（继续循环）结束本次循环，继续下一次循环。</p>
 
-//3.执行请求
-NSArray *allEmployee =  [_context executeFetchRequest:request error:nil];
-
-// 4. 删除信息
-for (Employee *emp in allEmployee) {
-    [_context deleteObject:emp];
-}
-}
-  - (IBAction)update:(id)sender {
-// 查找数据
-// 1. 创建请求对象， 指定要查找的表
-NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@&quot;Employee&quot;];
-
-// 2. 时间排序
-NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@&quot;createDate&quot; ascending:YES];
-request.sortDescriptors = @[dateSort];
-
-// 3. 过滤条件 只想查找 zhangsan8
-NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;, @&quot;liqinghai&quot;];
-request.predicate = pre;
-
-// 3. 执行请求
-NSError *error = nil;
-NSArray *allEmployee = [_context executeFetchRequest:request error:&amp;error];
-
-// 4. 更新
-for (Employee *emp in allEmployee) {
-    emp.height = @(12);
-    emp.name = @&quot;zhangbo&quot;;
-}
-[_context save:&amp;error];
-}
-
-- (IBAction)fetch:(id)sender {
-// 查询数据
-// 1. 创建请求对象，指定要查找的表
-NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@&quot;Employee&quot;];
-
-// 2. 时间排序
-NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@&quot;createDate&quot; ascending:YES];
-request.sortDescriptors = @[dateSort];
-
-// 3. 过滤条件 只想查找 zhangsan8
-NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;, @&quot;liqinghai&quot;];
-request.predicate = pre;
-
-// 3. 执行请求
-NSError *error = nil;
-NSArray *allEmployee = [_context executeFetchRequest:request error:&amp;error];
-if (error) {
-    NSLog(@&quot;%@&quot;,error);
-}
-
-    //NSLog(@&quot;%@&quot;,allEmployee);
-
-    for (Employee *emp in allEmployee) {
-    NSLog(@&quot;%@ %@ %@&quot;,emp.name,emp.height,emp.createDate);
-  } 
-}
-</code></pre>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/03/14/CoreData基础教程/" data-id="cipavehl60003eqridinslxvu" class="article-share-link" data-share="baidu" data-title="CoreData基础教程">分享到</a>
+        <a data-url="http://yoursite.com/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/" data-id="cipavehmm0009eqrisvdkcrd9" class="article-share-link" data-share="baidu" data-title="Java第二天-Java基本语法1">分享到</a>
       
 
       
-        <a href="http://yoursite.com/2016/03/14/CoreData基础教程/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://yoursite.com/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/#ds-thread" class="article-comment-link">评论</a>
       
 
       
@@ -221,19 +171,19 @@ if (error) {
     
 <nav id="article-nav">
   
-    <a href="/2016/03/15/Foundation-study(一)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/06/10/Java学习笔记/Java第三天-Java基本语法2/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">
         
-          Foundation-study
+          Java第三天-Java基本语法2
         
       </div>
     </a>
   
   
-    <a href="/2016/03/12/OC52个有效方法/第3章-接口与-API设计/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/06/04/Java学习笔记/Java第一天-Java概述/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">第3章 接口与-API设计</div>
+      <div class="article-nav-title">Java第一天 - Java概述</div>
     </a>
   
 </nav>
@@ -243,7 +193,7 @@ if (error) {
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2016/03/14/CoreData基础教程/" data-title="CoreData基础教程" data-url="http://yoursite.com/2016/03/14/CoreData基础教程/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/06/04/Java学习笔记/Java第二天-Java基本语法1/" data-title="Java第二天-Java基本语法1" data-url="http://yoursite.com/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/"></div>
   </section>
 </section>
       

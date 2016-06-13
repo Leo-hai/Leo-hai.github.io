@@ -73,98 +73,78 @@
     <div class="outer">
       <section id="main">
   
-    <article id="post-面试总结（持续更新中）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-HTTP-TCP-Socket" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/04/面试总结（持续更新中）/" class="article-date">
-  <time datetime="2016-05-04T05:16:03.000Z" itemprop="datePublished">2016-05-04</time>
+    <a href="/2016/04/02/HTTP-TCP-Socket/" class="article-date">
+  <time datetime="2016-04-02T09:36:00.000Z" itemprop="datePublished">2016-04-02</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/02/HTTP-TCP-Socket/">HTTP TCP Socket</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>面试总结（持续更新中）</p>
-<p>3月1日面试（知春路一小公司）由浅入深</p>
-<p>1.应用程序的生命周期。</p>
-<p>有storyboard情况下:</p>
-<p>1.main函数</p>
-<p>2.UIApplicationMain</p>
-<ul>
-<li><p>创建UIApplication对象</p>
-</li>
-<li><p>创建UIApplication的delegate对象</p>
-</li>
-</ul>
-<p>3.根据Info.plist获得最主要storyboard的文件名,加载最主要的storyboard(有storyboard)</p>
-<ul>
-<li><p>创建UIWindow</p>
-</li>
-<li><p>创建和设置UIWindow的rootViewController</p>
-</li>
-<li><p>显示窗口</p>
-</li>
-</ul>
-<p>没有storyboard情况下:</p>
-<p>1.main函数</p>
-<p>2.UIApplicationMain</p>
-<ul>
-<li><p>创建UIApplication对象</p>
-</li>
-<li><p>创建UIApplication的delegate对象</p>
-</li>
-</ul>
-<p>3.delegate对象开始处理(监听)系统事件(没有storyboard)</p>
-<ul>
-<li><p>程序启动完毕的时候, 就会调用代理的application:didFinishLaunchingWithOptions:方法</p>
-</li>
-<li><p>在application:didFinishLaunchingWithOptions:中创建UIWindow</p>
-</li>
-<li><p>创建和设置UIWindow的rootViewController</p>
-</li>
-<li><p>显示窗口</p>
-</li>
-</ul>
-<p>2.@property()各种属性</p>
-<p>3.深拷贝与浅拷贝</p>
-<p>浅拷贝只拷贝指针，不会产生新的对象；深拷贝是内容拷贝，产生了新的对象。</p>
-<p>4.runloop</p>
-<p>NSRunLoop是IOS消息机制的处理模式</p>
-<blockquote>
-<p>1.NSRunLoop的主要作用：控制NSRunLoop里面线程的执行和休眠，在有事情做的时候使当前NSRunLoop控制的线程工作，没有事情做让当前NSRunLoop的控制的线程休眠。</p>
-<p>2.NSRunLoop 就是一直在循环检测，从线程start到线程end，检测inputsource(如点击，双击等操作)异步事件，检测timesource同步事件，检测到输入源会执行处理函数，首先会产生通知，corefunction向线程添加runloop observers来监听事件，意在监听事件发生时来做处理。</p>
-<p>3.runloopmode是一个集合，包括监听：事件源，定时器，以及需通知的runloop observers</p>
-<ol>
-<li><p>只有在为你的程序创建次线程的时候，才需要运行run loop。对于程序的主线程而言，run loop是关键部分。Cocoa提供了运行主线程run loop的代码同时也会自动运行run loop。IOS程序UIApplication中的run方法在程序正常启动的时候就会启动run loop。如果你使用xcode提供的模板创建的程序，那你永远不需要自己去启动run loop</p>
-</li>
-<li><p>在多线程中，你需要判断是否需要run loop。如果需要run loop，那么你要负责配置run loop并启动。你不需要在任何情况下都去启动run loop。比如，你使用线程去处理一个预先定义好的耗时极长的任务时，你就可以毋需启动run loop。Run loop只在你要和线程有交互时才需要</p>
-</li>
-</ol>
-</blockquote>
-<p>5.gcd</p>
-<p>6.runtime runtime怎么添加属性方法</p>
-<p>运行时机制，runtime库里面包含了跟类、成员变量、方法相关的API，比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等 需要导入</p>
-<p>1.runtime，运行时机制，它是一套C语言库</p>
-<p>2.实际上我们编写的所有OC代码，最终都是转成了runtime库的东西，比如类转成了runtime库里面的结构体等数据类型，方法转成了runtime库里面的C语言函数，平时调方法都是转成了objc_msgSend函数（所以说OC有个消息发送机制）</p>
-<p>3.因此，可以说runtime是OC的底层实现，是OC的幕后执行者</p>
-<p>4.有了runtime库，能做什么事情呢？runtime库里面包含了跟类、成员变量、方法相关的API，比如获取类里面的所有成员变量，为类动态添加成员变量，动态改变类的方法实现，为类动态添加新的方法等</p>
-<p>5.因此，有了runtime，想怎么改就怎么改</p>
-<p>7.数据本地化的几种方式（NSUserDefaufts,归档反归档，数据库，writeToFile）</p>
-<p>8.堆和栈的区别</p>
-<p>1.堆空间的内存是动态分配的，一般存放对象，并且需要手动释放内存</p>
-<p>2.栈空间的内存由系统自动分配，一般存放局部变量等，不需要手动管理内存</p>
-<p>category和extension区别</p>
+        <p>HTTP TCP Socket</p>
+<p>一：HTTP版本简介</p>
+<p>这里我把HTTP版本简单分为三类：1.1之前，1.1，2.0，针对这三类做个主要差异的介绍：</p>
+<p>1.HTTP 1.1之前</p>
+<p>不支持持久连接。一旦服务器对客户端发出响应就立即断开TCP连接</p>
+<p>无请求头跟响应头</p>
+<p>客户端的前后请求是同步的。下一个请求必须等上一个请求从服务端拿到响应后才能发出，有点类似多线程的同步机制。</p>
+<p>2.HTTP 1.1(主流版本)</p>
+<p>与1.1之前的版本相比，做了以下性能上的提升</p>
+<p>增加请求头跟响应头</p>
+<p>支持持久连接。客户端通过请求头中指定Connection为keep-alive告知服务端不要在完成响应后立即释放连接。HTTP是基于TCP的，在HTTP 1.1中一次TCP连接可以处理多次HTTP请求</p>
+<p>客户端不同请求之间是异步的。下一个请求不必等到上一个请求回来后再发出，而可以连续发出请求，有点类似多线程的异步处理。</p>
+<p>3.HTTP 2.0</p>
+<p>本着向下兼容的原则，1.1版本有的特性2.0都具备，也使用相同的API。但是2.0将只用于https网址。由于2.0的普及还需要比较长的一段时间。</p>
+<p>我们重点关注一下当前1.1版本所做几点改变。支持持久连接有什么好处呢？HTTP是基于TCP连接的，如果连接被频繁地启动然后断开就会花费很多资源在TCP三次握手以及四次挥手上，效率低下。以请求一个网页为例，我们知道，一个html网页上的图片资源并不是直接嵌入在网页上，而只是提供url，图片仍需要额外发HTTP 请求去下载。一个网页从请求到最终加载到本地往往需要经过过个HTTP请求。在1.1版本之前请求一个网页就需要发生多次”握手-挥手”的过程，每次连接之间相互独立；而1.1及之后的版本最少只需要一次就够。</p>
+<p>再来就是请求异步，其好处参考多线程异步处理，在此不展开。</p>
+<p>以上特性可以用图1.1表示：</p>
+<pre><code>图1.1 异步请求
+</code></pre><p>我们可以看到：1、N次请求其实只建立了1次TCP连接，2、N次请求连续异步发出。</p>
+<p>二：HTTP、Socket、TCP的区别</p>
+<p>这三个概念经常被谈到，也是比较容易被混掉的概念。在回顾之前我们先看一下这三者在TCP/IP协议族中的位置关系：</p>
+<pre><code>图2.1 层次关系
+</code></pre><p>HTTP是应用层的协议，更靠近用户端；TCP是传输层的协议；而socket是从传输层上抽象出来的一个抽象层，本质是接口。所以本质上三种还是很好区分的。尽管如此，有时候你可能会懵逼，HTTP连接、TCP连接、socket连接有什么区别？好吧，如果上面的图解释的还是不够清楚的话，我们继续往下看。</p>
+<p>1、TCP连接与HTTP连接的区别</p>
+<p>上文提过，HTTP是基于TCP的，客户端往服务端发送一个HTTP请求时第一步就是要建立与服务端的TCP连接，也就是先三次握手，“你好，你好，你好”。从HTTP 1.1开始支持持久连接，也就是一次TCP连接可以发送多次的HTTP请求。</p>
+<p>小总结：HTTP基于TCP</p>
+<p>2、TCP连接与Socket连接的区别</p>
+<p>在图4.1中我们提到，socket层只是在TCP/UDP传输层上做的一个抽象接口层，因此一个socket连接可以基于连接，也有可能基于UDP。基于TCP协议的socket连接同样需要通过三次握手建立连接，是可靠的；基于UDP协议的socket连接不需要建立连接的过程，不过对方能不能收到都会发送过去，是不可靠的，大多数的即时通讯IM都是后者。</p>
+<p>小总结：Socket也基于TCP</p>
+<p>3、HTTP连接与Socket连接的区别</p>
+<p>区分这两个概念是比较有意义的，毕竟TCP看不见摸不着，HTTP与Socket是实实在在能用到的。</p>
+<p>HTTP是短连接，Socket(基于TCP协议的)是长连接。尽管HTTP1.1开始支持持久连接，但仍无法保证始终连接。而Socket连接一旦建立TCP三次握手，除非一方主动断开，否则连接状态一直保持。</p>
+<p>HTTP连接服务端无法主动发消息，Socket连接双方请求的发送先后限制。这点就比较重要了，因为它将决定二者分别适合应用在什么场景下。HTTP采用“请求-响应”机制，在客户端还没发送消息给服务端前，服务端无法推送消息给客户端。必须满足客户端发送消息在前，服务端回复在后。Socket连接双方类似peer2peer的关系，一方随时可以向另一方喊话。</p>
+<p>4、问题来了：什么时候该用HTTP，什么时候该用socket</p>
+<p>这个问题的提出是很自然而然的。当你接到一个与另一方的网络通讯需求，自然会考虑用HTTP还是用Socket。</p>
+<p>用HTTP的情况：双方不需要时刻保持连接在线，比如客户端资源的获取、文件上传等。</p>
+<p>用Socket的情况：大部分即时通讯应用(QQ、微信)、聊天室、苹果APNs等</p>
+<p>在iOS中，发HTTP请求一般用原生的NSURLConnection、NSURLSession或者开源的AFNetWorking(推荐)、ASIHttpRequest(已停止更新)。连接Socket连接我用的比较多是robbiehanson大神的CocoaAsyncSocket(XMPPFramework也是出自他手)。</p>
+<p>三：小结</p>
+<p>以上就是关于HTTP与TCP的一些区别，欢迎留言，如果不对的地方还请不吝指出，谢谢！</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/05/04/面试总结（持续更新中）/" data-id="cip3rpvl8000fybs6jx0p1gh5" class="article-share-link" data-share="baidu" data-title="">分享到</a>
+        <a data-url="http://yoursite.com/2016/04/02/HTTP-TCP-Socket/" data-id="cipavehl30002eqrioyvlasdl" class="article-share-link" data-share="baidu" data-title="HTTP TCP Socket">分享到</a>
       
 
       
-        <a href="http://yoursite.com/2016/05/04/面试总结（持续更新中）/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://yoursite.com/2016/04/02/HTTP-TCP-Socket/#ds-thread" class="article-comment-link">评论</a>
       
 
       
@@ -175,40 +155,97 @@
 
 
   
-    <article id="post-面试总结" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Homebrew-简介及安装" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/04/面试总结/" class="article-date">
-  <time datetime="2016-05-04T05:05:24.000Z" itemprop="datePublished">2016-05-04</time>
+    <a href="/2016/04/01/Homebrew-简介及安装/" class="article-date">
+  <time datetime="2016-04-01T09:36:00.000Z" itemprop="datePublished">2016-04-01</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/01/Homebrew-简介及安装/">Homebrew-简介及安装</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>面试总结</p>
-<p>我是2点开始的面试，面试官基本是按照我简历上面写的技能挨着问的，接下来我会一一列举上这些问题。（大概的阐述一下，谢谢）</p>
+        <h3 id="Homebrew官网：http-brew-sh-index-zh-cn-html"><a href="#Homebrew官网：http-brew-sh-index-zh-cn-html" class="headerlink" title="Homebrew官网：http://brew.sh/index_zh-cn.html"></a>Homebrew官网：<strong><a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">http://brew.sh/index_zh-cn.html</a></strong></h3><p> Homebrew简称 brew，是 Mac OSX 上的软件管理工具，能在 Mac 中方便的安装或者卸载软件。</p>
+<h3 id="Homebrew-安装打开终端，输入下面的命令即可进行安装"><a href="#Homebrew-安装打开终端，输入下面的命令即可进行安装" class="headerlink" title="Homebrew 安装打开终端，输入下面的命令即可进行安装"></a>Homebrew 安装打开终端，输入下面的命令即可进行安装</h3><pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre><h3 id="安装过程如下图："><a href="#安装过程如下图：" class="headerlink" title="安装过程如下图："></a>安装过程如下图：</h3><p>由于本人在安装时未截图，故在网上找了张图放上。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1704994-7dcd2a483987bd7d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="180847572326830.png"></p>
+<h3 id="HomeBrew-使用"><a href="#HomeBrew-使用" class="headerlink" title="HomeBrew 使用"></a>HomeBrew 使用</h3><p>搜索软件：</p>
+<pre><code>brew search 软件名 
+</code></pre><p>安装软件：</p>
+<pre><code>brew install 软件名
+</code></pre><p>卸载软件：</p>
+<pre><code>brew remove 软件名
+</code></pre><p>更多的，还请查看官网：<a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">http://brew.sh/index_zh-cn.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/04/01/Homebrew-简介及安装/" data-id="cipavehl10001eqriwmv153vn" class="article-share-link" data-share="baidu" data-title="Homebrew-简介及安装">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/04/01/Homebrew-简介及安装/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Foundation-study(一)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/15/Foundation-study(一)/" class="article-date">
+  <time datetime="2016-03-15T09:36:00.000Z" itemprop="datePublished">2016-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/15/Foundation-study(一)/">Foundation-study</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一：About-Memory-Management"><a href="#一：About-Memory-Management" class="headerlink" title="一：About Memory Management"></a>一：About Memory Management</h4><p><img src="http://upload-images.jianshu.io/upload_images/1704994-1c7d7245c9a37f10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="memory_management_2x.png"></p>
+<p>MRR(manual retain-release)：在运行时环境下通过自动引用计数管理内存，手动管理。<br>ARC：系统在程序编译器就插入了适当的内存管理语句，同样是采用自动引用计数。<br>两种情况下导致内存问题</p>
 <ol>
-<li>企业版上线和AppStore上线的区别</li>
+<li>释放或复写正在使用的内存</li>
+<li>内存泄露</li>
 </ol>
-<p>2.什么是面向对象（三大特征）</p>
-<p>3.delegate可以多继承么，block</p>
-<p>4.GCD，NSOperation的区别</p>
-<p>5.AFNetworking、MJRefresh</p>
-<p>6.svn、git</p>
-<p>7.最常见的一些Bug类型，并简述是如何解决他们的（线下和线上）</p>
-<p>8.runtime</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/05/04/面试总结/" data-id="cip3rpvl7000eybs6j5kq4fkg" class="article-share-link" data-share="baidu" data-title="">分享到</a>
+        <a data-url="http://yoursite.com/2016/03/15/Foundation-study(一)/" data-id="cipavehkv0000eqriznzk1z4z" class="article-share-link" data-share="baidu" data-title="Foundation-study">分享到</a>
       
 
       
-        <a href="http://yoursite.com/2016/05/04/面试总结/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://yoursite.com/2016/03/15/Foundation-study(一)/#ds-thread" class="article-comment-link">评论</a>
       
 
       
@@ -219,222 +256,187 @@
 
 
   
-    <article id="post-iOS截取整个屏幕" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-CoreData基础教程" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/04/iOS截取整个屏幕/" class="article-date">
-  <time datetime="2016-05-04T04:54:06.000Z" itemprop="datePublished">2016-05-04</time>
+    <a href="/2016/03/14/CoreData基础教程/" class="article-date">
+  <time datetime="2016-03-14T09:36:00.000Z" itemprop="datePublished">2016-03-14</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>+(UIImage*) imageByCaptureScreen  {
-   if(UIGraphicsBeginImageContextWithOptions!=NULL)
-{
-UIGraphicsBeginImageContextWithOptions([UIScreenmainScreen].bounds.size,NO,0);
-}
-else
-{
-UIGraphicsBeginImageContext([UIScreenmainScreen].bounds.size);
-}
-CGContextRefcontext =UIGraphicsGetCurrentContext();
-for(UIWindow*windowin[[UIApplicationsharedApplication]windows])
-{
-if(![windowrespondsToSelector:@selector(screen)] || [windowscreen] == [UIScreenmainScreen])
-{
-CGContextSaveGState(context);
-CGContextTranslateCTM(context, [windowcenter].x, [windowcenter].y);
-CGContextConcatCTM(context, [windowtransform]);
-if(IOS7_OR_LATER)
-{
-CGContextTranslateCTM(context,
--[windowbounds].size.width* [[windowlayer]anchorPoint].x,
--[windowbounds].size.height* [[windowlayer]anchorPoint].y);
-}
-else
-{
-CGContextTranslateCTM(context,
--[windowbounds].size.width* [[windowlayer]anchorPoint].x,
--[windowbounds].size.height* [[windowlayer]anchorPoint].y-20);
-}
-[[windowlayer]renderInContext:context];
-
-CGContextRestoreGState(context);
-
-}
-
-}
-
-UIImage*image = UIGraphicsGetImageFromCurrentImageContext();
-
-UIGraphicsEndImageContext();
-
-returnimage;
-
- }
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2016/05/04/iOS截取整个屏幕/" data-id="cip3rpvks0007ybs6ikry96je" class="article-share-link" data-share="baidu" data-title="">分享到</a>
-      
-
-      
-        <a href="http://yoursite.com/2016/05/04/iOS截取整个屏幕/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-    </footer>
-  </div>
+      <header class="article-header">
+        
   
-</article>
-
-
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/14/CoreData基础教程/">CoreData基础教程</a>
+    </h1>
   
-    <article id="post-iOS-官方文档阅读说明" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/04/iOS-官方文档阅读说明/" class="article-date">
-  <time datetime="2016-05-04T04:54:06.000Z" itemprop="datePublished">2016-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
+
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先给大家看下官方文档的组织架构截图<br><img src="http://upload-images.jianshu.io/upload_images/1704994-77fa0af2d161c6df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
-<p>系统四个层次分别为下面4个从上到下。</p>
+        <h2 id="使用CoreData来保存数据"><a href="#使用CoreData来保存数据" class="headerlink" title="使用CoreData来保存数据"></a>使用CoreData来保存数据</h2><ol>
+<li><p>创建DataModel，创建Entity，添加属性，创建NSManagedObject subclass关联创建的实体类。自动生成代码类，然后在对应的viewController导入实体类头文件。</p>
+<pre><code>//  1. 初始化上下文
+NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+
+// 2. 添加持久化存储
+// 2.1 模型文件 描述表结构的文件
+NSManagedObjectModel *companyModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+
+// 2.2 持久化存储调用器
+NSPersistentStoreCoordinator *store = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:companyModel];
+NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+
+// 数据库的完整路径
+NSString *sqlitePath = [doc stringByAppendingString:@&quot;company.sqlite&quot;];
+// 保存一个sqlite文件的话，必须要知道表结构和sqlite的文件路径
+
+// 2.3 告诉coredata数据存储在一个sqlite文件
+NSError *error = nil;
+[store addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:sqlitePath] options:nil error:&amp;error];
+if (error) {
+    NSLog(@&quot;%@&quot;,error);
+}
+</code></pre><p> context.persistentStoreCoordinator = store;<br> _context = context;</p>
 <ul>
-<li>Coco Touch Layer ——</li>
-<li>Media Layer——</li>
-<li>Core Services Layer ——</li>
-<li>Core OS Layer ——</li>
-<li>Audio &amp; Video —— 音视频</li>
-<li>Data Management —— 数据管理。</li>
-<li>General —— 一般性的问题。</li>
-<li>Graphics &amp; Animation —— 图形和动画。</li>
-<li>Languages &amp; Utilities —— 语言和工具，Objective-C的一些知识，App Store的管理工具等。</li>
-<li>Mathematical Computation —— 数学计算。</li>
-<li>Networking &amp; Internet —— 网络问题。</li>
-<li>Performance —— 性能。</li>
-<li>Security —— 安全。</li>
-<li>Swift</li>
-<li>User Experience —— 用户体验。</li>
-<li>Xcode</li>
+<li><p>(IBAction)add:(id)sender {<br>// 添加员工<br>// 1.创建一个员工对象<br>// 用coredata创建对象不能使用下面的方法<br> //    Employee <em>emp = [[Employee alloc] init];<br>Employee </em>emp = [NSEntityDescription insertNewObjectForEntityForName:@”Employee” inManagedObjectContext:_context];<br>emp.name = @”liqinghai”;<br>emp.height = @(2.0);<br>emp.createDate = [NSDate date];</p>
+<p>// 保存员工信息<br>NSError *error = nil;<br>[_context save:&amp;error];<br>if (error) {<br> NSLog(@”%@”,error);<br>}<br> }</p>
+<ul>
+<li>(IBAction)dele:(id)sender {<br>//查找数据<br>//1.创建请求对象,指定要查找的表<br>NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@”Employee”];</li>
 </ul>
-<ol>
-<li>Sample Code ——是一些苹果官方推出的 Demo</li>
-<li>Guides —— 指南，指南是Xcode里面最酷最好的部分，学会看指南则大多数情况完全不用买书。Xcode文档里面的指南，就是一个一个问题的，从一个问题，或者系统的一个方面出发，一步一步详细介绍怎么使用Cocoa库的文档。一般程序员比较熟悉的是Reference，就是你查某个类、方法、函数的文档时候，冒出来的东西。那些其实是一点一点的细碎知识，光看那些东西就完全没有脉络。而Guides就是帮你整理好的学习的脉络。</li>
-<li>Reference —— 参考资料。一个一个框架一个一个类组织起来的文档，包含了每个方法的使用方法。</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://yoursite.com/2016/05/04/iOS-官方文档阅读说明/" data-id="cip3rpvkk0004ybs62bzhyoui" class="article-share-link" data-share="baidu" data-title="">分享到</a>
-      
-
-      
-        <a href="http://yoursite.com/2016/05/04/iOS-官方文档阅读说明/#ds-thread" class="article-comment-link">评论</a>
-      
-
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Markdow学习" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/04/Markdow学习/" class="article-date">
-  <time datetime="2016-05-04T04:54:06.000Z" itemprop="datePublished">2016-05-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一：标题"><a href="#一：标题" class="headerlink" title="一：标题"></a>一：标题</h1><h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h1 id="二：列表"><a href="#二：列表" class="headerlink" title="二：列表"></a>二：列表</h1><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><ul>
-<li>文本1</li>
-<li>文本2</li>
-<li>文本3<h3 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h3></li>
+<p>//2.时间排序<br>NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@”createDate” ascending:YES];//YES代表升序 NO 降序<br>request.sortDescriptors = @[dateSort];</p>
+</li>
 </ul>
-<ol>
-<li>文本1</li>
-<li>文本2</li>
-<li>文本3</li>
+</li>
 </ol>
-<h1 id="三：链接和图片"><a href="#三：链接和图片" class="headerlink" title="三：链接和图片"></a>三：链接和图片</h1><p><a href="www.baidu.com">Markdow学习</a><br><img src="http://upload-images.jianshu.io/upload_images/1704994-f1d6fdf7599d33a6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<h1 id="四：引用"><a href="#四：引用" class="headerlink" title="四：引用"></a>四：引用</h1><blockquote>
-<p>一盏灯， 一片昏黄； 一简书， 一杯淡茶。 守着那一份淡定， 品读属于自己的寂寞。 保持淡定， 才能欣赏到最美丽的风景！ 保持淡定， 人生从此不再寂寞。</p>
-</blockquote>
-<h1 id="五：粗体和斜体"><a href="#五：粗体和斜体" class="headerlink" title="五：粗体和斜体"></a>五：粗体和斜体</h1><p><strong>一盏灯</strong>，<em>一片昏黄</em></p>
-<h1 id="六：表格"><a href="#六：表格" class="headerlink" title="六：表格"></a>六：表格</h1><table>
-<thead>
-<tr>
-<th>Tables</th>
-<th style="text-align:center">Are</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>col 3 is</td>
-<td style="text-align:center">right-aligned</td>
-<td style="text-align:right">$1600</td>
-</tr>
-<tr>
-<td>col 2 is</td>
-<td style="text-align:center">centered</td>
-<td style="text-align:right">$12</td>
-</tr>
-<tr>
-<td>zebra stripes</td>
-<td style="text-align:center">are neat</td>
-<td style="text-align:right">$1</td>
-</tr>
-</tbody>
-</table>
-<h1 id="七：代码块"><a href="#七：代码块" class="headerlink" title="七：代码块"></a>七：代码块</h1><pre><code>pragma mark 业务方法
-/**
- *  @author Leo-hai, 16-04-15 09:09:09
- *
- *  @brief  初始化界面
- */
--(void)initUI{
-  self.view.backgroundColor = [TKUIHelper colorWithHexString:@&quot;#eeeeee&quot;];
-[self addNavigationBar];
-//初始化滚动控制器
-self.scrollView = [[UIScrollView alloc]initWithFrame:self.view.bounds];
-self.scrollView.bounces = YES;
-self.scrollView.backgroundColor = [TKUIHelper colorWithHexString:@&quot;#eeeeee&quot;];
-//设置下拉刷新
-self.scrollView.header = [TKRefreshHeader headerWithRefreshingBlock:^{
-    [self refreshHome];
-}];
+<pre><code>//过滤条件 只想查找 zhangsan8
+NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;,@&quot;liqinghai&quot;];
+request.predicate = pre;
 
-[self.view addSubview:self.scrollView];
+
+//3.执行请求
+NSArray *allEmployee =  [_context executeFetchRequest:request error:nil];
+
+// 4. 删除信息
+for (Employee *emp in allEmployee) {
+    [_context deleteObject:emp];
+}
+}
+  - (IBAction)update:(id)sender {
+// 查找数据
+// 1. 创建请求对象， 指定要查找的表
+NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@&quot;Employee&quot;];
+
+// 2. 时间排序
+NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@&quot;createDate&quot; ascending:YES];
+request.sortDescriptors = @[dateSort];
+
+// 3. 过滤条件 只想查找 zhangsan8
+NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;, @&quot;liqinghai&quot;];
+request.predicate = pre;
+
+// 3. 执行请求
+NSError *error = nil;
+NSArray *allEmployee = [_context executeFetchRequest:request error:&amp;error];
+
+// 4. 更新
+for (Employee *emp in allEmployee) {
+    emp.height = @(12);
+    emp.name = @&quot;zhangbo&quot;;
+}
+[_context save:&amp;error];
+}
+
+- (IBAction)fetch:(id)sender {
+// 查询数据
+// 1. 创建请求对象，指定要查找的表
+NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@&quot;Employee&quot;];
+
+// 2. 时间排序
+NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@&quot;createDate&quot; ascending:YES];
+request.sortDescriptors = @[dateSort];
+
+// 3. 过滤条件 只想查找 zhangsan8
+NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;, @&quot;liqinghai&quot;];
+request.predicate = pre;
+
+// 3. 执行请求
+NSError *error = nil;
+NSArray *allEmployee = [_context executeFetchRequest:request error:&amp;error];
+if (error) {
+    NSLog(@&quot;%@&quot;,error);
+}
+
+    //NSLog(@&quot;%@&quot;,allEmployee);
+
+    for (Employee *emp in allEmployee) {
+    NSLog(@&quot;%@ %@ %@&quot;,emp.name,emp.height,emp.createDate);
+  } 
 }
 </code></pre>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/05/04/Markdow学习/" data-id="cip3rpvku0008ybs62w0dfki3" class="article-share-link" data-share="baidu" data-title="">分享到</a>
+        <a data-url="http://yoursite.com/2016/03/14/CoreData基础教程/" data-id="cipavehl60003eqridinslxvu" class="article-share-link" data-share="baidu" data-title="CoreData基础教程">分享到</a>
       
 
       
-        <a href="http://yoursite.com/2016/05/04/Markdow学习/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://yoursite.com/2016/03/14/CoreData基础教程/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-OC52个有效方法/第3章-接口与-API设计" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/12/OC52个有效方法/第3章-接口与-API设计/" class="article-date">
+  <time datetime="2016-03-12T09:36:00.000Z" itemprop="datePublished">2016-03-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/12/OC52个有效方法/第3章-接口与-API设计/">第3章 接口与-API设计</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##第15条：用前缀避免命名空间冲突<br>选择与你的公司、应用程序或二者皆有关联之名称作为类名的前缀，并在所有代码中均使用这一前缀。<br>若自己开发的程序库中用到了第三方库，则应为其中的名称加上前缀。</p>
+<p>##第16条：提供“全能初始化方法”<br>在类中提供一个全能初始化方法，并与文档中指出。其他初始化方法均应调用此方法。<br>若全能初始化方法与超类不同，则需覆写超类中的对应方法。<br>如果超类的初始化方法不适应于子类，那么应覆写这个超类方法，并在其中抛出异常。</p>
+<p>##第17条：实现 description 方法<br>实现 description 方法返回一个有意义的字符串，用以描述该实例。<br>若想在调试时打印更详尽的对象描述信息，则应实现 debugDescription 方法。</p>
+<p>##第18条：尽量使用不可变对象<br>尽量创建不可变对象。<br>若某属性仅可用于对象内部修改，则在“延展”中将其 readonly 属性扩展为 readwrite 属性。<br>不要把可变的 collection 作为属性公开，而应提供相关方法，以此修改对象中的可变 collection。</p>
+<p>##第19条：使用清晰而协调的命名方式</p>
+<p>##第20条：为私有方法名加前缀</p>
+<p>##第21条：理解 Object—C 错误模型</p>
+<p>##第22条：理解 N�SCoping协议</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/03/12/OC52个有效方法/第3章-接口与-API设计/" data-id="cipavehmp000ceqrionqy086i" class="article-share-link" data-share="baidu" data-title="第3章 接口与-API设计">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/03/12/OC52个有效方法/第3章-接口与-API设计/#ds-thread" class="article-comment-link">评论</a>
       
 
       
@@ -464,7 +466,7 @@ self.scrollView.header = [TKRefreshHeader headerWithRefreshingBlock:^{
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -476,23 +478,23 @@ self.scrollView.header = [TKRefreshHeader headerWithRefreshingBlock:^{
       <ul>
         
           <li>
-            <a href="/2016/06/04/Java第二天-Java基本语法1/">Java第二天-Java基本语法1</a>
+            <a href="/2016/06/10/Java学习笔记/Java第三天-Java基本语法2/">Java第三天-Java基本语法2</a>
           </li>
         
           <li>
-            <a href="/2016/06/04/Java第一天-Java概述/">Java第一天 - Java概述</a>
+            <a href="/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/">Java第二天-Java基本语法1</a>
           </li>
         
           <li>
-            <a href="/2016/05/04/iOS笔试题(一)/">(no title)</a>
+            <a href="/2016/06/04/Java学习笔记/Java第一天-Java概述/">Java第一天 - Java概述</a>
           </li>
         
           <li>
-            <a href="/2016/05/04/iOS笔试题(二)/">(no title)</a>
+            <a href="/2016/04/05/iOS截取整个屏幕/">iOS截取整个屏幕</a>
           </li>
         
           <li>
-            <a href="/2016/05/04/HTTP-TCP-Socket/">(no title)</a>
+            <a href="/2016/04/04/iOS-官方文档阅读说明/">iOS-官方文档阅读说明</a>
           </li>
         
       </ul>

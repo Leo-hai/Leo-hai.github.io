@@ -4,27 +4,48 @@
 <head>
   <meta charset="utf-8">
   
-  <title>CoreData基础教程 | 小海之家</title>
+  <title>Java第一天 - Java概述 | 小海之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用CoreData来保存数据
-创建DataModel，创建Entity，添加属性，创建NSManagedObject subclass关联创建的实体类。自动生成代码类，然后在对应的viewController导入实体类头文件。
-//  1. 初始化上下文
-NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
+  <meta name="description" content="Java第一天 - Java概述dos命令行：
+dir :列出当期目录下的文件以及文件夹
+md  :创建目录
+rd  :删除目录
+cd  :进入指定目录
+cd..:退回到上一级目录
+cd/ :退回到根目录
+del :删除文件
+exit:推出dos命令行
+
+Java语言的三种技术架构J2EE(Java 2 Platform Enterprise Edition) 企业版是为开发企业环境下的应用程序提">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CoreData基础教程">
-<meta property="og:url" content="http://yoursite.com/2016/03/14/CoreData基础教程/index.html">
+<meta property="og:title" content="Java第一天 - Java概述">
+<meta property="og:url" content="http://yoursite.com/2016/06/04/Java学习笔记/Java第一天-Java概述/index.html">
 <meta property="og:site_name" content="小海之家">
-<meta property="og:description" content="使用CoreData来保存数据
-创建DataModel，创建Entity，添加属性，创建NSManagedObject subclass关联创建的实体类。自动生成代码类，然后在对应的viewController导入实体类头文件。
-//  1. 初始化上下文
-NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
-<meta property="og:updated_time" content="2016-06-13T05:50:42.000Z">
+<meta property="og:description" content="Java第一天 - Java概述dos命令行：
+dir :列出当期目录下的文件以及文件夹
+md  :创建目录
+rd  :删除目录
+cd  :进入指定目录
+cd..:退回到上一级目录
+cd/ :退回到根目录
+del :删除文件
+exit:推出dos命令行
+
+Java语言的三种技术架构J2EE(Java 2 Platform Enterprise Edition) 企业版是为开发企业环境下的应用程序提">
+<meta property="og:updated_time" content="2016-06-04T08:51:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CoreData基础教程">
-<meta name="twitter:description" content="使用CoreData来保存数据
-创建DataModel，创建Entity，添加属性，创建NSManagedObject subclass关联创建的实体类。自动生成代码类，然后在对应的viewController导入实体类头文件。
-//  1. 初始化上下文
-NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
+<meta name="twitter:title" content="Java第一天 - Java概述">
+<meta name="twitter:description" content="Java第一天 - Java概述dos命令行：
+dir :列出当期目录下的文件以及文件夹
+md  :创建目录
+rd  :删除目录
+cd  :进入指定目录
+cd..:退回到上一级目录
+cd/ :退回到根目录
+del :删除文件
+exit:推出dos命令行
+
+Java语言的三种技术架构J2EE(Java 2 Platform Enterprise Edition) 企业版是为开发企业环境下的应用程序提">
   
     <link rel="alternative" href="/atom.xml" title="小海之家" type="application/atom+xml">
   
@@ -81,10 +102,10 @@ NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
   </div>
 </header>
     <div class="outer">
-      <section id="main"><article id="post-CoreData基础教程" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-Java学习笔记/Java第一天-Java概述" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/03/14/CoreData基础教程/" class="article-date">
-  <time datetime="2016-03-14T09:36:00.000Z" itemprop="datePublished">2016-03-14</time>
+    <a href="/2016/06/04/Java学习笔记/Java第一天-Java概述/" class="article-date">
+  <time datetime="2016-06-04T01:36:00.000Z" itemprop="datePublished">2016-06-04</time>
 </a>
     
   </div>
@@ -95,7 +116,7 @@ NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
         
   
     <h1 class="article-title" itemprop="name">
-      CoreData基础教程
+      Java第一天 - Java概述
     </h1>
   
 
@@ -103,115 +124,32 @@ NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initW">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="使用CoreData来保存数据"><a href="#使用CoreData来保存数据" class="headerlink" title="使用CoreData来保存数据"></a>使用CoreData来保存数据</h2><ol>
-<li><p>创建DataModel，创建Entity，添加属性，创建NSManagedObject subclass关联创建的实体类。自动生成代码类，然后在对应的viewController导入实体类头文件。</p>
-<pre><code>//  1. 初始化上下文
-NSManagedObjectContext *context = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-
-// 2. 添加持久化存储
-// 2.1 模型文件 描述表结构的文件
-NSManagedObjectModel *companyModel = [NSManagedObjectModel mergedModelFromBundles:nil];
-
-// 2.2 持久化存储调用器
-NSPersistentStoreCoordinator *store = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:companyModel];
-NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-
-// 数据库的完整路径
-NSString *sqlitePath = [doc stringByAppendingString:@&quot;company.sqlite&quot;];
-// 保存一个sqlite文件的话，必须要知道表结构和sqlite的文件路径
-
-// 2.3 告诉coredata数据存储在一个sqlite文件
-NSError *error = nil;
-[store addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:[NSURL fileURLWithPath:sqlitePath] options:nil error:&amp;error];
-if (error) {
-    NSLog(@&quot;%@&quot;,error);
-}
-</code></pre><p> context.persistentStoreCoordinator = store;<br> _context = context;</p>
-<ul>
-<li><p>(IBAction)add:(id)sender {<br>// 添加员工<br>// 1.创建一个员工对象<br>// 用coredata创建对象不能使用下面的方法<br> //    Employee <em>emp = [[Employee alloc] init];<br>Employee </em>emp = [NSEntityDescription insertNewObjectForEntityForName:@”Employee” inManagedObjectContext:_context];<br>emp.name = @”liqinghai”;<br>emp.height = @(2.0);<br>emp.createDate = [NSDate date];</p>
-<p>// 保存员工信息<br>NSError *error = nil;<br>[_context save:&amp;error];<br>if (error) {<br> NSLog(@”%@”,error);<br>}<br> }</p>
-<ul>
-<li>(IBAction)dele:(id)sender {<br>//查找数据<br>//1.创建请求对象,指定要查找的表<br>NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@”Employee”];</li>
+        <h1 id="Java第一天-Java概述"><a href="#Java第一天-Java概述" class="headerlink" title="Java第一天 - Java概述"></a>Java第一天 - Java概述</h1><h2 id="dos命令行："><a href="#dos命令行：" class="headerlink" title="dos命令行："></a>dos命令行：</h2><ul>
+<li>dir :列出当期目录下的文件以及文件夹</li>
+<li>md  :创建目录</li>
+<li>rd  :删除目录</li>
+<li>cd  :进入指定目录</li>
+<li>cd..:退回到上一级目录</li>
+<li>cd/ :退回到根目录</li>
+<li>del :删除文件</li>
+<li>exit:推出dos命令行</li>
 </ul>
-<p>//2.时间排序<br>NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@”createDate” ascending:YES];//YES代表升序 NO 降序<br>request.sortDescriptors = @[dateSort];</p>
-</li>
-</ul>
-</li>
-</ol>
-<pre><code>//过滤条件 只想查找 zhangsan8
-NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;,@&quot;liqinghai&quot;];
-request.predicate = pre;
+<h2 id="Java语言的三种技术架构"><a href="#Java语言的三种技术架构" class="headerlink" title="Java语言的三种技术架构"></a>Java语言的三种技术架构</h2><h3 id="J2EE-Java-2-Platform-Enterprise-Edition-企业版"><a href="#J2EE-Java-2-Platform-Enterprise-Edition-企业版" class="headerlink" title="J2EE(Java 2 Platform Enterprise Edition) 企业版"></a>J2EE(Java 2 Platform Enterprise Edition) 企业版</h3><p>是为开发企业环境下的应用程序提供的一套解决方案。<br>该技术体系中包含的技术如 Servlet Jsp等,主要针对于Web应用程序开发。</p>
+<h3 id="J2SE-Java-2-Platform-Standard-Edition-标准版"><a href="#J2SE-Java-2-Platform-Standard-Edition-标准版" class="headerlink" title="J2SE(Java 2 Platform Standard Edition) 标准版"></a>J2SE(Java 2 Platform Standard Edition) 标准版</h3><p>是为开发普通桌面和商务应用程序提供的解决方案。 该技术体系是其他两者的基础,可以完成一些桌面应用程序的开发。 比如Java版的扫雷。</p>
+<h3 id="J2ME-Java-2-Platform-Micro-Edition-小型版"><a href="#J2ME-Java-2-Platform-Micro-Edition-小型版" class="headerlink" title="J2ME(Java 2 Platform Micro Edition) 小型版"></a>J2ME(Java 2 Platform Micro Edition) 小型版</h3><p>是为开发电子消费产品和嵌入式设备提供的解决方案。<br>该技术体系主要应用于小型电子消费类产品,如手机中的应用程序等。</p>
+<p>Java5.0版本后,更名为 JAVAEE JAVASE JAVAME</p>
+<h2 id="Java语言的特点：跨平台性"><a href="#Java语言的特点：跨平台性" class="headerlink" title="Java语言的特点：跨平台性"></a>Java语言的特点：跨平台性</h2><h3 id="JVM（JVM-Java-Vitual-Machine）Java虚拟机"><a href="#JVM（JVM-Java-Vitual-Machine）Java虚拟机" class="headerlink" title="JVM（JVM Java Vitual Machine）Java虚拟机"></a>JVM（JVM Java Vitual Machine）Java虚拟机</h3><h3 id="JRE-Java-Runtime-Environment-Java运行环境"><a href="#JRE-Java-Runtime-Environment-Java运行环境" class="headerlink" title="JRE(Java Runtime Environment)Java运行环境"></a>JRE(Java Runtime Environment)Java运行环境</h3><p>包括Java虚拟机(JVM Java Virtual Machine)和Java程序所需的核心类 库等,如果想要运行一个开发好的Java程序,计算机中只需要安装JRE 即可。</p>
+<h3 id="JDK-Java-Development-Kit-Java开发工具包"><a href="#JDK-Java-Development-Kit-Java开发工具包" class="headerlink" title="JDK(Java Development Kit)Java开发工具包"></a>JDK(Java Development Kit)Java开发工具包</h3><p>JDK是提供给Java开发人员使用的,其中包含了java的开发工具,也包<br>括了JRE。所以安装了JDK,就不用在单独安装JRE了。 其中的开发工具:编译工具(javac.exe) 打包工具(jar.exe)等</p>
 
-
-//3.执行请求
-NSArray *allEmployee =  [_context executeFetchRequest:request error:nil];
-
-// 4. 删除信息
-for (Employee *emp in allEmployee) {
-    [_context deleteObject:emp];
-}
-}
-  - (IBAction)update:(id)sender {
-// 查找数据
-// 1. 创建请求对象， 指定要查找的表
-NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@&quot;Employee&quot;];
-
-// 2. 时间排序
-NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@&quot;createDate&quot; ascending:YES];
-request.sortDescriptors = @[dateSort];
-
-// 3. 过滤条件 只想查找 zhangsan8
-NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;, @&quot;liqinghai&quot;];
-request.predicate = pre;
-
-// 3. 执行请求
-NSError *error = nil;
-NSArray *allEmployee = [_context executeFetchRequest:request error:&amp;error];
-
-// 4. 更新
-for (Employee *emp in allEmployee) {
-    emp.height = @(12);
-    emp.name = @&quot;zhangbo&quot;;
-}
-[_context save:&amp;error];
-}
-
-- (IBAction)fetch:(id)sender {
-// 查询数据
-// 1. 创建请求对象，指定要查找的表
-NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@&quot;Employee&quot;];
-
-// 2. 时间排序
-NSSortDescriptor *dateSort = [NSSortDescriptor sortDescriptorWithKey:@&quot;createDate&quot; ascending:YES];
-request.sortDescriptors = @[dateSort];
-
-// 3. 过滤条件 只想查找 zhangsan8
-NSPredicate *pre = [NSPredicate predicateWithFormat:@&quot;name = %@&quot;, @&quot;liqinghai&quot;];
-request.predicate = pre;
-
-// 3. 执行请求
-NSError *error = nil;
-NSArray *allEmployee = [_context executeFetchRequest:request error:&amp;error];
-if (error) {
-    NSLog(@&quot;%@&quot;,error);
-}
-
-    //NSLog(@&quot;%@&quot;,allEmployee);
-
-    for (Employee *emp in allEmployee) {
-    NSLog(@&quot;%@ %@ %@&quot;,emp.name,emp.height,emp.createDate);
-  } 
-}
-</code></pre>
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/03/14/CoreData基础教程/" data-id="cipavehl60003eqridinslxvu" class="article-share-link" data-share="baidu" data-title="CoreData基础教程">分享到</a>
+        <a data-url="http://yoursite.com/2016/06/04/Java学习笔记/Java第一天-Java概述/" data-id="cipavehm80007eqri9ycdj5ai" class="article-share-link" data-share="baidu" data-title="Java第一天 - Java概述">分享到</a>
       
 
       
-        <a href="http://yoursite.com/2016/03/14/CoreData基础教程/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://yoursite.com/2016/06/04/Java学习笔记/Java第一天-Java概述/#ds-thread" class="article-comment-link">评论</a>
       
 
       
@@ -221,19 +159,19 @@ if (error) {
     
 <nav id="article-nav">
   
-    <a href="/2016/03/15/Foundation-study(一)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
       <div class="article-nav-title">
         
-          Foundation-study
+          Java第二天-Java基本语法1
         
       </div>
     </a>
   
   
-    <a href="/2016/03/12/OC52个有效方法/第3章-接口与-API设计/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/05/iOS截取整个屏幕/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">第3章 接口与-API设计</div>
+      <div class="article-nav-title">iOS截取整个屏幕</div>
     </a>
   
 </nav>
@@ -243,7 +181,7 @@ if (error) {
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="2016/03/14/CoreData基础教程/" data-title="CoreData基础教程" data-url="http://yoursite.com/2016/03/14/CoreData基础教程/"></div>
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/06/04/Java学习笔记/Java第一天-Java概述/" data-title="Java第一天 - Java概述" data-url="http://yoursite.com/2016/06/04/Java学习笔记/Java第一天-Java概述/"></div>
   </section>
 </section>
       

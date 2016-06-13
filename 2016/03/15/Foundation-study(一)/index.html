@@ -4,17 +4,32 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | 小海之家</title>
+  <title>Foundation-study | 小海之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="bruce sha&apos;s blog | java | scala | bi">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小海之家">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="一：About Memory Management
+MRR(manual retain-release)：在运行时环境下通过自动引用计数管理内存，手动管理。ARC：系统在程序编译器就插入了适当的内存管理语句，同样是采用自动引用计数。两种情况下导致内存问题
+
+释放或复写正在使用的内存
+内存泄露">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Foundation-study">
+<meta property="og:url" content="http://yoursite.com/2016/03/15/Foundation-study(一)/index.html">
 <meta property="og:site_name" content="小海之家">
-<meta property="og:description" content="bruce sha&apos;s blog | java | scala | bi">
+<meta property="og:description" content="一：About Memory Management
+MRR(manual retain-release)：在运行时环境下通过自动引用计数管理内存，手动管理。ARC：系统在程序编译器就插入了适当的内存管理语句，同样是采用自动引用计数。两种情况下导致内存问题
+
+释放或复写正在使用的内存
+内存泄露">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1704994-1c7d7245c9a37f10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-06-13T05:54:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小海之家">
-<meta name="twitter:description" content="bruce sha&apos;s blog | java | scala | bi">
+<meta name="twitter:title" content="Foundation-study">
+<meta name="twitter:description" content="一：About Memory Management
+MRR(manual retain-release)：在运行时环境下通过自动引用计数管理内存，手动管理。ARC：系统在程序编译器就插入了适当的内存管理语句，同样是采用自动引用计数。两种情况下导致内存问题
+
+释放或复写正在使用的内存
+内存泄露">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1704994-1c7d7245c9a37f10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="小海之家" type="application/atom+xml">
   
@@ -71,115 +86,77 @@
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/10/Java学习笔记/Java第三天-Java基本语法2/" class="archive-article-date">
-  <time datetime="2016-06-10T12:42:51.000Z" itemprop="datePublished">6月 10</time>
+      <section id="main"><article id="post-Foundation-study(一)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/15/Foundation-study(一)/" class="article-date">
+  <time datetime="2016-03-15T09:36:00.000Z" itemprop="datePublished">2016-03-15</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/10/Java学习笔记/Java第三天-Java基本语法2/">Java第三天-Java基本语法2</a>
+    <h1 class="article-title" itemprop="name">
+      Foundation-study
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/" class="archive-article-date">
-  <time datetime="2016-06-04T08:55:32.000Z" itemprop="datePublished">6月 4</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/">Java第二天-Java基本语法1</a>
-    </h1>
-  
+        <h4 id="一：About-Memory-Management"><a href="#一：About-Memory-Management" class="headerlink" title="一：About Memory Management"></a>一：About Memory Management</h4><p><img src="http://upload-images.jianshu.io/upload_images/1704994-1c7d7245c9a37f10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="memory_management_2x.png"></p>
+<p>MRR(manual retain-release)：在运行时环境下通过自动引用计数管理内存，手动管理。<br>ARC：系统在程序编译器就插入了适当的内存管理语句，同样是采用自动引用计数。<br>两种情况下导致内存问题</p>
+<ol>
+<li>释放或复写正在使用的内存</li>
+<li>内存泄露</li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/06/04/Java学习笔记/Java第一天-Java概述/" class="archive-article-date">
-  <time datetime="2016-06-04T01:36:00.000Z" itemprop="datePublished">6月 4</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/06/04/Java学习笔记/Java第一天-Java概述/">Java第一天 - Java概述</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/04/05/iOS截取整个屏幕/" class="archive-article-date">
-  <time datetime="2016-04-05T09:36:00.000Z" itemprop="datePublished">4月 5</time>
-</a>
+    </div>
+    <footer class="article-footer">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/05/iOS截取整个屏幕/">iOS截取整个屏幕</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/04/04/iOS-官方文档阅读说明/" class="archive-article-date">
-  <time datetime="2016-04-04T09:36:00.000Z" itemprop="datePublished">4月 4</time>
-</a>
+        <a data-url="http://yoursite.com/2016/03/15/Foundation-study(一)/" data-id="cipavehkv0000eqriznzk1z4z" class="article-share-link" data-share="baidu" data-title="Foundation-study">分享到</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/04/iOS-官方文档阅读说明/">iOS-官方文档阅读说明</a>
-    </h1>
-  
 
-    </header>
+      
+        <a href="http://yoursite.com/2016/03/15/Foundation-study(一)/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/01/Homebrew-简介及安装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          Homebrew-简介及安装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/14/CoreData基础教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">CoreData基础教程</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/03/15/Foundation-study(一)/" data-title="Foundation-study" data-url="http://yoursite.com/2016/03/15/Foundation-study(一)/"></div>
+  </section>
 </section>
       
       <aside id="sidebar">
