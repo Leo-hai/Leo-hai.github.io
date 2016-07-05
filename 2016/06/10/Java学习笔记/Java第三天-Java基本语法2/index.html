@@ -6,16 +6,43 @@
   
   <title>Java第三天-Java基本语法2 | 小海之家</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="bruce sha&apos;s blog | java | scala | bi">
+  <meta name="description" content="函数 重载
+数组// 定义一个可以存储3个整数的容器
+int[] x = new int[3]; 或
+int x[] = new int[3]; 或
+int x[] = {3,1,6,5,4};
+内存栈内存，堆内存垃圾回收机制
+ArrayIndexOutOfBoundsException:数组越界NullPointException:空指针异常
+数组操作
+遍历
+获取数组中的元素,通常会用到遍历in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java第三天-Java基本语法2">
 <meta property="og:url" content="http://yoursite.com/2016/06/10/Java学习笔记/Java第三天-Java基本语法2/index.html">
 <meta property="og:site_name" content="小海之家">
-<meta property="og:description" content="bruce sha&apos;s blog | java | scala | bi">
-<meta property="og:updated_time" content="2016-06-13T02:16:42.000Z">
+<meta property="og:description" content="函数 重载
+数组// 定义一个可以存储3个整数的容器
+int[] x = new int[3]; 或
+int x[] = new int[3]; 或
+int x[] = {3,1,6,5,4};
+内存栈内存，堆内存垃圾回收机制
+ArrayIndexOutOfBoundsException:数组越界NullPointException:空指针异常
+数组操作
+遍历
+获取数组中的元素,通常会用到遍历in">
+<meta property="og:updated_time" content="2016-07-03T13:32:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java第三天-Java基本语法2">
-<meta name="twitter:description" content="bruce sha&apos;s blog | java | scala | bi">
+<meta name="twitter:description" content="函数 重载
+数组// 定义一个可以存储3个整数的容器
+int[] x = new int[3]; 或
+int x[] = new int[3]; 或
+int x[] = {3,1,6,5,4};
+内存栈内存，堆内存垃圾回收机制
+ArrayIndexOutOfBoundsException:数组越界NullPointException:空指针异常
+数组操作
+遍历
+获取数组中的元素,通常会用到遍历in">
   
     <link rel="alternative" href="/atom.xml" title="小海之家" type="application/atom+xml">
   
@@ -94,12 +121,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p> 重载</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><pre><code>// 定义一个可以存储3个整数的容器
+int[] x = new int[3]; 或
+int x[] = new int[3]; 或
+int x[] = {3,1,6,5,4};
+</code></pre><h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p>栈内存，堆内存<br>垃圾回收机制</p>
+<p>ArrayIndexOutOfBoundsException:数组越界<br>NullPointException:空指针异常</p>
+<h2 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h2><ol>
+<li><p>遍历</p>
+<p>获取数组中的元素,通常会用到遍历<br>int arr[] = new int[3];<br>数组的元素个数：arr.length</p>
+</li>
+<li>最值</li>
+<li>排序<ol>
+<li>选择排序</li>
+</ol>
+</li>
+</ol>
+<pre><code>for(int x=0;x&lt;arr.length-1;x++) {    
+     for(int y=x+1;y&lt;arr.length;y++)
+           if(arr[x]&gt;arr[y]){
+           // 换位置
+           }
+   }
+</code></pre><ol>
+<li><p>冒泡排序</p>
+<pre><code>for(int x=0;x&lt;arr.length-1;x++) {
+    for(int y=0;y&lt;arr.length-x-1;y++) {
+         if(arr[y]&gt;arr[y+1]){
+        // 换位置
+        }               
+    }
+}
+</code></pre><ol>
+<li>希尔排序（最快的）</li>
+<li>Array.sort(arr) java中提供的排序方式</li>
+</ol>
+</li>
+</ol>
+<ol>
+<li>查找（折半查找）</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://yoursite.com/2016/06/10/Java学习笔记/Java第三天-Java基本语法2/" data-id="cipdlhdqd0000ljs604vfetao" class="article-share-link" data-share="baidu" data-title="Java第三天-Java基本语法2">分享到</a>
+        <a data-url="http://yoursite.com/2016/06/10/Java学习笔记/Java第三天-Java基本语法2/" data-id="ciq94h7nx000bc9s6kxytfh74" class="article-share-link" data-share="baidu" data-title="Java第三天-Java基本语法2">分享到</a>
       
 
       
@@ -112,6 +180,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/06/13/Java基础【03-面向对象】/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          Java基础【03-面向对象】
+        
+      </div>
+    </a>
   
   
     <a href="/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/" id="article-nav-older" class="article-nav-link-wrap">
@@ -142,7 +219,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">10</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -154,23 +231,23 @@
       <ul>
         
           <li>
-            <a href="/2016/06/10/Java学习笔记/Java第三天-Java基本语法2/">Java第三天-Java基本语法2</a>
+            <a href="/2016/07/05/OC52个有效方法/第7章-系统框架/">第7章-系统框架</a>
           </li>
         
           <li>
-            <a href="/2016/06/04/Java学习笔记/Java第二天-Java基本语法1/">Java第二天-Java基本语法1</a>
+            <a href="/2016/07/05/OC52个有效方法/第6章-块与大中枢派发/">第6章-块与大中枢派发</a>
           </li>
         
           <li>
-            <a href="/2016/06/04/Java学习笔记/Java第一天-Java概述/">Java第一天 - Java概述</a>
+            <a href="/2016/07/05/OC52个有效方法/第5章-内存管理/">第5章-内存管理</a>
           </li>
         
           <li>
-            <a href="/2016/04/05/iOS截取整个屏幕/">iOS截取整个屏幕</a>
+            <a href="/2016/07/05/OC52个有效方法/第4章-协议与分类/">第4章-协议与分类</a>
           </li>
         
           <li>
-            <a href="/2016/04/04/iOS-官方文档阅读说明/">iOS-官方文档阅读说明</a>
+            <a href="/2016/06/13/Java基础【03-面向对象】/">Java基础【03-面向对象】</a>
           </li>
         
       </ul>

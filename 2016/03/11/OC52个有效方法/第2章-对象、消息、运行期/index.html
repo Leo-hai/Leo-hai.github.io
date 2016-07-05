@@ -1,0 +1,345 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第2章-对象、消息、运行期 | 小海之家</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="第6条：理解属性这一概念可以使用@property语法来定义对象中所封装的数据。
+通过“特质”来指定存取数据所需的正确语句。
+在设置属性所对应的实例变量时，一定要遵从该属性所声明的语义。
+开发iOS程序是应尽量使用nonatomic属性，因为atomic属性会严重影响性能。
+@synthesize语法指定实例变量的名字。@synthesize firstName = _myFirstName;
+@">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第2章-对象、消息、运行期">
+<meta property="og:url" content="http://yoursite.com/2016/03/11/OC52个有效方法/第2章-对象、消息、运行期/index.html">
+<meta property="og:site_name" content="小海之家">
+<meta property="og:description" content="第6条：理解属性这一概念可以使用@property语法来定义对象中所封装的数据。
+通过“特质”来指定存取数据所需的正确语句。
+在设置属性所对应的实例变量时，一定要遵从该属性所声明的语义。
+开发iOS程序是应尽量使用nonatomic属性，因为atomic属性会严重影响性能。
+@synthesize语法指定实例变量的名字。@synthesize firstName = _myFirstName;
+@">
+<meta property="og:updated_time" content="2016-07-05T07:15:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第2章-对象、消息、运行期">
+<meta name="twitter:description" content="第6条：理解属性这一概念可以使用@property语法来定义对象中所封装的数据。
+通过“特质”来指定存取数据所需的正确语句。
+在设置属性所对应的实例变量时，一定要遵从该属性所声明的语义。
+开发iOS程序是应尽量使用nonatomic属性，因为atomic属性会严重影响性能。
+@synthesize语法指定实例变量的名字。@synthesize firstName = _myFirstName;
+@">
+  
+    <link rel="alternative" href="/atom.xml" title="小海之家" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小海之家</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">码农，程序猿，数据分析大师</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-OC52个有效方法/第2章-对象、消息、运行期" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/11/OC52个有效方法/第2章-对象、消息、运行期/" class="article-date">
+  <time datetime="2016-03-11T09:36:00.000Z" itemprop="datePublished">2016-03-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      第2章-对象、消息、运行期
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="第6条：理解属性这一概念"><a href="#第6条：理解属性这一概念" class="headerlink" title="第6条：理解属性这一概念"></a>第6条：理解属性这一概念</h2><p>可以使用@property语法来定义对象中所封装的数据。</p>
+<p>通过“特质”来指定存取数据所需的正确语句。</p>
+<p>在设置属性所对应的实例变量时，一定要遵从该属性所声明的语义。</p>
+<p>开发iOS程序是应尽量使用nonatomic属性，因为atomic属性会严重影响性能。</p>
+<p>@synthesize语法指定实例变量的名字。@synthesize firstName = _myFirstName;</p>
+<p>@dynamic：它会告诉编译器：不要自动创建实例变量和存储方法。</p>
+<p>assign：简单赋值操作。</p>
+<p>strong：设置方法先保留新值，并释放旧值，然后将新值设置上去。</p>
+<p>weak：设置方法既不保留新值，也不释放旧值。摧毁时，属性值清空（nil out）;</p>
+<p>unsafa_unretained:与assign相同，但摧毁时，属性值不会自动清空，与weak有区别。</p>
+<p>copy：设置方法不保留新值，而是将其拷贝。</p>
+<h2 id="第7条：在对象内部尽量直接访问实例变量"><a href="#第7条：在对象内部尽量直接访问实例变量" class="headerlink" title="第7条：在对象内部尽量直接访问实例变量"></a>第7条：在对象内部尽量直接访问实例变量</h2><p>由于不经过OC的“方法派发”步骤，所以直接访问实例变量的速度较快。在这种情况下，编译器所生成的代码会直接访问保存对象实例变量的那块内存。</p>
+<p>直接访问实例变量时，不会调用其“设置方法”，这就绕过了为其属性所定义的“内存管理语义”。比方说，如果在ARC下直接访问一个声明为copy的属性，那么并不会拷贝该属性，只会保留新值，并释放旧值。</p>
+<p>如果直接访问实例变量，那么不会触发“键值观测”（KVO）通知。这样做是否会产生问题，还取决于具体的对象行为。</p>
+<p>通过属性来访问有助于排查与之相关的错误。</p>
+<p>在对象内部读取数据时，应该直接通过实例变量来读，而在写入数据时，则应通过属性来写。</p>
+<p>在初始化方法及dealloc方法中，总是应该直接通过实例变量来读写数据。</p>
+<p>有时会使用懒加载，这种情况下，需要通过属性来读取数据。</p>
+<h2 id="第8条：理解“对象等同性”这一概念"><a href="#第8条：理解“对象等同性”这一概念" class="headerlink" title="第8条：理解“对象等同性”这一概念"></a>第8条：理解“对象等同性”这一概念</h2><p>若想检测对象的等同性，请提供“isEqual：”与hash方法。</p>
+<p>相同的对象必须具有相同的哈希码，但是两个哈希码相同的对象却未必相同。</p>
+<p>不要盲目地逐个检测每条属性，而是应该依照具体需求来制定检测方案。</p>
+<p>编写hash方法时，应该使用计算速度快而且哈希码碰撞几率低的算法。</p>
+<h2 id="第9条：以“类族模式”隐藏实现细节"><a href="#第9条：以“类族模式”隐藏实现细节" class="headerlink" title="第9条：以“类族模式”隐藏实现细节"></a>第9条：以“类族模式”隐藏实现细节</h2><p>类族模式可以把实现细节隐藏在一套简单的公共接口后面。</p>
+<p>系统框架中经常使用类族。</p>
+<p>从类族的公共抽象基类中继承子类时要小心，若有开发文档，首先阅读。</p>
+<h2 id="第10条：在既有类中使用关联对象存放自定义数据"><a href="#第10条：在既有类中使用关联对象存放自定义数据" class="headerlink" title="第10条：在既有类中使用关联对象存放自定义数据"></a>第10条：在既有类中使用关联对象存放自定义数据</h2><p>可以通过“关联对象”机制来把两个对象连起来。</p>
+<p>定义关联对象时可指定内存管理语义，用以模仿定义属性时所采用的“拥有关系”与“非拥有关系”。</p>
+<p>只有在其他做法不可行时才应选择关联对象，因为这种做法通常会引入难以查找的bug。</p>
+<h2 id="第11条：理解objc-msgSend的作用"><a href="#第11条：理解objc-msgSend的作用" class="headerlink" title="第11条：理解objc_msgSend的作用"></a>第11条：理解objc_msgSend的作用</h2><p>消息由接受者、选择子及参数构成。给某对象“发送消息（invoke a message）”也就是相当于在该对象上“调用方法”（call a method）。</p>
+<p>发给某对象的全部消息都要由“动态消息派发系统”（dynamic message dispatch sysytem）来处理，该系统会查出对应的方法，并执行其代码。</p>
+<h2 id="第12条：理解消息转发机制"><a href="#第12条：理解消息转发机制" class="headerlink" title="第12条：理解消息转发机制"></a>第12条：理解消息转发机制</h2><p>若对象无法响应某个选择子，则进入消息转发流程。</p>
+<p>通过运行期的动态方法解析功能，我们可以在需要用到某个方法时再将其加入类中。</p>
+<p>对象可以把其无法解读的某些选择子转交给其他对象处理。</p>
+<p>经过上述两步之后，如果还是没有办法处理选择子，那就启动完整的消息转发机制。</p>
+<h2 id="第13条：用“方法调配技术”调试“黑盒方法”"><a href="#第13条：用“方法调配技术”调试“黑盒方法”" class="headerlink" title="第13条：用“方法调配技术”调试“黑盒方法”"></a>第13条：用“方法调配技术”调试“黑盒方法”</h2><p>在运行期，可以向类中新增或替换选择子所对应的方法实现。</p>
+<p>使用另一份实现来替换原有的方法实现，这道工序叫做“方法调配”，开发者常用此技术向原有实现中添加新功能。</p>
+<p>一般来说，只有调试程序的时候才需要在运行期修改方法实现，这种方法不易滥用。</p>
+<h2 id="第14条：理解“类对象”的用意"><a href="#第14条：理解“类对象”的用意" class="headerlink" title="第14条：理解“类对象”的用意"></a>第14条：理解“类对象”的用意</h2><p>每个实例都有一个指向 Class 对象的指针，用以表明其类型，而这些 Class 对象则构成了类的继承体系。</p>
+<p>如果对象类型无法再编译期确定，那么就应该使用类型信息查询（is kind of class）来探知。</p>
+<p>尽量使用类型信息查询方法来确定对象类型，而不要直接比较类对象，因为某些对象可能实现了消息转发功能。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2016/03/11/OC52个有效方法/第2章-对象、消息、运行期/" data-id="ciq94h7o8000jc9s6170qbne4" class="article-share-link" data-share="baidu" data-title="第2章-对象、消息、运行期">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2016/03/11/OC52个有效方法/第2章-对象、消息、运行期/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/12/OC52个有效方法/第3章-接口与-API设计/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          第3章-接口与-API设计
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/10/OC52个有效方法/第1章-熟悉Objective-C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">第1章-熟悉Objective-C</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2016/03/11/OC52个有效方法/第2章-对象、消息、运行期/" data-title="第2章-对象、消息、运行期" data-url="http://yoursite.com/2016/03/11/OC52个有效方法/第2章-对象、消息、运行期/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">六月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">五月 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a><span class="archive-list-count">10</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/05/OC52个有效方法/第7章-系统框架/">第7章-系统框架</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/05/OC52个有效方法/第6章-块与大中枢派发/">第6章-块与大中枢派发</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/05/OC52个有效方法/第5章-内存管理/">第5章-内存管理</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/05/OC52个有效方法/第4章-协议与分类/">第4章-协议与分类</a>
+          </li>
+        
+          <li>
+            <a href="/2016/06/13/Java基础【03-面向对象】/">Java基础【03-面向对象】</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://Leo-hai.github.io" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Leo-hai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qinghaili2015"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+</div>
+</body>
+</html>
