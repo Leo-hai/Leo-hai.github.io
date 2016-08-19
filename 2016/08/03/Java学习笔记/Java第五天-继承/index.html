@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Java第五天-继承 | 小海之家</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="继承1.继承的概述通过 extends 关键字让类与类之间产生继承关系。• class SubDemo extends Demo{}
+2.继承的特点子父类出现后，类成员的特点：类中成员：1.变量 2.函数 3.构造函数
+3.super关键字超类
+4.函数覆盖子类覆盖父类，必须保证子类权限大于父类权限，才可以覆盖，否则编译失败静态只能覆盖静态
+5.子类的实例化过程构造函数不能覆盖子类的所有构造函数，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java第五天-继承">
+<meta property="og:url" content="http://yoursite.com/2016/08/03/Java学习笔记/Java第五天-继承/index.html">
+<meta property="og:site_name" content="小海之家">
+<meta property="og:description" content="继承1.继承的概述通过 extends 关键字让类与类之间产生继承关系。• class SubDemo extends Demo{}
+2.继承的特点子父类出现后，类成员的特点：类中成员：1.变量 2.函数 3.构造函数
+3.super关键字超类
+4.函数覆盖子类覆盖父类，必须保证子类权限大于父类权限，才可以覆盖，否则编译失败静态只能覆盖静态
+5.子类的实例化过程构造函数不能覆盖子类的所有构造函数，">
+<meta property="og:updated_time" content="2016-08-05T03:11:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java第五天-继承">
+<meta name="twitter:description" content="继承1.继承的概述通过 extends 关键字让类与类之间产生继承关系。• class SubDemo extends Demo{}
+2.继承的特点子父类出现后，类成员的特点：类中成员：1.变量 2.函数 3.构造函数
+3.super关键字超类
+4.函数覆盖子类覆盖父类，必须保证子类权限大于父类权限，才可以覆盖，否则编译失败静态只能覆盖静态
+5.子类的实例化过程构造函数不能覆盖子类的所有构造函数，">
+  
+    <link rel="alternative" href="/atom.xml" title="小海之家" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Leo-hai</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">码农，程序猿，数据分析大师</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Leo-hai</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="null" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Leo-hai</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">码农，程序猿，数据分析大师</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Java学习笔记/Java第五天-继承" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/03/Java学习笔记/Java第五天-继承/" class="article-date">
+  	<time datetime="2016-08-03T02:19:07.000Z" itemprop="datePublished">2016-08-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java第五天-继承
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="1-继承的概述"><a href="#1-继承的概述" class="headerlink" title="1.继承的概述"></a>1.继承的概述</h2><p>通过 extends 关键字让类与类之间产生继承关系。<br>• class SubDemo extends Demo{}</p>
+<h2 id="2-继承的特点"><a href="#2-继承的特点" class="headerlink" title="2.继承的特点"></a>2.继承的特点</h2><p>子父类出现后，类成员的特点：<br>类中成员：1.变量 2.函数 3.构造函数</p>
+<h2 id="3-super关键字"><a href="#3-super关键字" class="headerlink" title="3.super关键字"></a>3.super关键字</h2><p>超类</p>
+<h2 id="4-函数覆盖"><a href="#4-函数覆盖" class="headerlink" title="4.函数覆盖"></a>4.函数覆盖</h2><p>子类覆盖父类，必须保证子类权限大于父类权限，才可以覆盖，否则编译失败<br>静态只能覆盖静态</p>
+<h2 id="5-子类的实例化过程"><a href="#5-子类的实例化过程" class="headerlink" title="5.子类的实例化过程"></a>5.子类的实例化过程</h2><p>构造函数不能覆盖<br>子类的所有构造函数，默认都会访问父类中空参数的构造函数，因为子类的每一个构造函数的第一行都有隐式super（）。</p>
+<h2 id="6-final关键字"><a href="#6-final关键字" class="headerlink" title="6.final关键字"></a>6.final关键字</h2><ol>
+<li>final可以修饰类,函数,变量。</li>
+<li>final修饰的类不可以被继承。<br> 为了避免被继承，被子类复写功能。</li>
+<li>final修饰的函数不可以被覆盖。</li>
+<li><p>final修饰的变量是一个常量。只能被赋值一次。<br> 即可以修饰成员变量，也可以修饰局部变量。<br> 当在描述事物时，一些数据值是固定的，为了增强阅读性，这个值不需要改变，所以加上final。</p>
+</li>
+<li><p>内部类只能访问被final修饰的局部变量。</p>
+</li>
+</ol>
+<h2 id="7-抽象类"><a href="#7-抽象类" class="headerlink" title="7.抽象类"></a>7.抽象类</h2><ol>
+<li>抽象类和抽象方法必须用abstract关键字来修饰。</li>
+<li>抽象方法只有方法声明,没有方法体,定义在抽象类中。<br>• 格式:修饰符 abstract 返回值类型 函数名(参数列表) ;<br>特点：</li>
+<li>抽象方法一定在抽象类中</li>
+<li>被abstract修饰</li>
+<li>抽象类不可以new创建对象，因为调用抽象方法没有意义</li>
+<li><p>抽象类中的方法要被使用，必须由子类复写所有的抽象方法后，简历子类对象调用。<br> 如果子类只覆盖了部分抽象方法，那么该子类还是一个抽象类。</p>
+<pre><code>模板方法模式
+</code></pre></li>
+</ol>
+<h2 id="8-接口"><a href="#8-接口" class="headerlink" title="8.接口"></a>8.接口</h2><p>interface 用于定义接口<br>    格式特点：</p>
+<pre><code>1. 接口中常见定义：常量，抽象方法
+2. 接口中的成员都有固定抽象方法
+常量：public static final
+方法：public abstract
+接口中的成员都是public
+
+
+interface Inter
+{
+public static final int NUM = 2;
+public abstract void show();
+}
+</code></pre><p>接口可以被类多实现。也是对多继承的转换形式，Java可以多实现。<br>接口与接口之间可以多继承。类之间只能单继承。<br>(有点类似于OC的extension)</p>
+<h2 id="9-多态"><a href="#9-多态" class="headerlink" title="9.多态"></a>9.多态</h2><p>类型转型，向上，向下。<br>自始至终都是子类在变化。</p>
+<p>当转化类型是先判断类型<br>if (a instanceof b)<br>相当于isKindOf</p>
+<p>/<em>
+</em>匿名内部类<br>*/</p>
+<ol>
+<li>就是内部类的简写格式</li>
+<li>定义匿名内部类的前提：<br> 内部类必须是继承一个类或者实现接口。</li>
+<li><p>匿名内部类的格式：</p>
+<p> new Demo（） {</p>
+<pre><code>void show() {
+    // 函数体
+}
+</code></pre><p> }</p>
+</li>
+<li><p>其实匿名内部类其实就是一个匿名子类对象。而且这个对象有点胖。可以理解为带内容的对象。</p>
+</li>
+<li>匿名内部类中定义的方法最好不要超过3个。</li>
+</ol>
+<h2 id="10-异常"><a href="#10-异常" class="headerlink" title="10.异常"></a>10.异常</h2><ol>
+<li>对于严重的，java通过Error类进行描述<br>对于Error一般不编写针对性的代码对齐进行处理。<br>对于非严重的，java通过Exception类进行描述<br>   对于Exception可以使用针对性的处理方式进行处理。</li>
+</ol>
+<p>无论Error或者Exception都有一些共性内容，</p>
+<pre><code>Throwable
+</code></pre><ol>
+<li><p>异常的处理<br>try catch finally</p>
+</li>
+<li><p>对捕获到的异常对象进行获取异常信息操作。</p>
+</li>
+</ol>
+<p>throws Exception // 在功能上通过throws的关键字声明该功能可能会产生问题</p>
+<ol>
+<li>对多异常的处理<br>a. 声明异常时，建议声明更具体的异常，这样处理更具体</li>
+</ol>
+<p>b. 对方声明几个异常，就对应有几个catch块，不要定义多余的catch块<br>如果多个catch块中异常出现继承关系，父类异常catch块放在最下面</p>
+<p>建议在进行catch处理时，catch中一定要定义具体处理方式。</p>
+<ol>
+<li>因为项目中会出现特定问题，Java并未处理该类问题，可以自定义异常。<br>当在函数内部出现了throw跑出异常对象，则必须要给出对应的处理动作。<br>try catch 或者声明要调用者处理<br>构造时只要将异常信息传递给父类，通过super语句。</li>
+</ol>
+<ol>
+<li><p>throws和throw的区别<br> throws使用在函数上， throw使用在函数内<br> throws后面跟的是异常类，可以多个，用，隔开；throw后面跟的是异常对象。</p>
+</li>
+<li><p>Exception中有一个特殊的子类异常RuntimeException，运行时异常<br>如果在函数内容抛出异常，函数上可以不用声明，编译一样通过<br>如果在函数上声明了该异常。调用者可以不用进行处理，编译一样通过。<br>之所以不用在函数上声明，是因为不需要让调用者处理。</p>
+</li>
+</ol>
+<p>自定义异常时，如果该异常的发生，无法使程序继续运行，继承RuntimeException</p>
+<p>编译是被检测的异常，不被检测的异常（运行时异常，RuntimeException或其子类）</p>
+<p>finally中存放的是一定会被执行的代码，通常用于关闭资源。</p>
+<h2 id="11-包"><a href="#11-包" class="headerlink" title="11.包"></a>11.包</h2><h2 id="12-Jar包的操作"><a href="#12-Jar包的操作" class="headerlink" title="12.Jar包的操作"></a>12.Jar包的操作</h2><p>通过jar.exe工具对jar的操作。<br>• 创建jar包<br>    jar -cvf mypack.jar packapackb<br>• 查看jar包<br>     jar -tvf mypack.jar [&gt;定向文件]<br>• 解压缩<br>    jar -xvf mypack.jar<br>• 自定义jar包的清单文件<br>    jar–cvfm mypack.jar mf.txt packapackb</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/31/Spring-Boot-Reference-Guide-master/IX. ‘How-to’ guides/64.13. Enable Multiple Listeners with Undertow/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Java学习笔记/Java第五天-继承" data-title="Java第五天-继承" data-url="http://yoursite.com/2016/08/03/Java学习笔记/Java第五天-继承/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Leo-hai
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
